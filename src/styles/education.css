@@ -1,0 +1,97 @@
+/* Page Styling */
+.education-container {
+    background: #0b1233;
+    color: white;
+    font-family: "Poppins", sans-serif;
+    padding: 60px;
+    text-align: center;
+  }
+  
+  .page-title {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 40px;
+    background: linear-gradient(90deg, #4a90e2, #ff6b6b);
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+  
+  /* Timeline */
+  .timeline {
+    position: relative;
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+  }
+  
+  .timeline-item {
+    position: relative;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    margin-bottom: 30px;
+    transition: transform 0.5s ease, box-shadow 0.3s ease;
+  }
+  
+  .timeline-item:hover {
+    transform: scale(1.03);
+    box-shadow: 0px 4px 20px rgba(255, 255, 255, 0.2);
+  }
+  
+  .timeline-date {
+    font-size: 18px;
+    font-weight: bold;
+    color: #4a90e2;
+  }
+  
+  .timeline-content {
+    padding-top: 10px;
+  }
+  
+  .timeline-content h3 {
+    margin: 5px 0;
+    font-size: 22px;
+  }
+  
+  /* Animations */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateX(-30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  .fade-in {
+    animation: fadeIn 1.5s ease-in-out;
+  }
+  
+  .slide-in {
+    animation: slideIn 1.5s ease-in-out;
+  }
+  
+  /* Responsive */
+  @media screen and (max-width: 768px) {
+    .page-title {
+      font-size: 28px;
+    }
+    .timeline-item {
+      padding: 15px;
+    }
+  }
+  

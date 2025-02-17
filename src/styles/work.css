@@ -1,0 +1,106 @@
+/* Work Page */
+.work-container {
+    background: #0b1233;
+    color: white;
+    font-family: "Poppins", sans-serif;
+    padding: 60px;
+    text-align: center;
+  }
+  
+  .page-title {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 40px;
+    background: linear-gradient(90deg, #4a90e2, #ff6b6b);
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+  
+  /* Work Cards */
+  .work-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .work-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    padding: 20px;
+    width: 320px;
+    transition: transform 0.5s ease, box-shadow 0.3s ease;
+  }
+  
+  .work-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 4px 20px rgba(255, 255, 255, 0.2);
+  }
+  
+  .work-card h3 {
+    font-size: 22px;
+    color: #4a90e2;
+  }
+  
+  .work-card h4 {
+    font-size: 18px;
+    color: #ff6b6b;
+  }
+  
+  .work-card .duration {
+    font-size: 16px;
+    font-weight: bold;
+    color: #cccccc;
+  }
+  
+  .work-card .description {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  
+  /* Animations */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .fade-in {
+    animation: fadeIn 1.5s ease-in-out;
+  }
+  
+  /* Responsive */
+  @media screen and (max-width: 768px) {
+    .page-title {
+      font-size: 28px;
+    }
+    .work-cards {
+      flex-direction: column;
+      align-items: center;
+    }
+    .work-card {
+      width: 90%;
+    }
+  }
+  .certificate-btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 12px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+  }
+  
+  .certificate-btn:hover {
+    background-color: #0056b3;
+  }
+  
