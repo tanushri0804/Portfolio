@@ -1,0 +1,88 @@
+body {
+    background-color: #081836;
+    color: #39c0ed;
+    font-family: 'Times New Roman', serif;
+  }
+  
+  .education-container {
+    max-width: 60%;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 12px;
+    background-color: #081836;
+    text-align: left;
+    margin-left: 22%;
+}
+
+  .education-section{
+    display: flex;
+    background-color:#081836;
+  }
+  .education-logo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  
+  }
+  .edu-logo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .education-title {
+    font-size: 32px;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 20px;
+  }
+  
+  .education-details {
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 8px;
+    width: 750px;
+  }
+  .education-details h1{
+    color: #CDEEFB;
+  }
+  
+  .education-details h2 {
+    color: white;
+    margin-bottom: 10px;
+    font-size: 22px;
+    font-weight: bold;
+  }
+  
+  .education-details h3 {
+    color: white;
+    margin-bottom: 15px;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .education-details p {
+    color: #DDD;
+    line-height: 1.6;
+    font-size: 18px;
+  }
+  
+  .education-details p strong {
+    color: white;
+  }
+  
+  .education-details a {
+    color: white;
+    text-decoration: none;
+  }
+  
+  .education-details a:hover {
+    text-decoration: underline;
+  }
+  
+  .logoo {
+    width: 150px;
+    height: 150px;
+    margin-top: 10px;
+  }

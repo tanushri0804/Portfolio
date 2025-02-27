@@ -1,0 +1,83 @@
+.technology-container {
+    background-color: #050F2C;
+    border-bottom: 1px solid #333;
+    padding-bottom: 40px;
+    text-align: center;
+    min-height: 40vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 50px;
+}
+
+.technology-title {
+    margin: 40px 0;
+    font-size: 2.5rem;
+    color: #1eb8f5;
+    font-weight: 300;
+    padding-bottom: 20px;
+    position: sticky;
+    top: 0;
+    background-color: #050F2C;
+    z-index: 10;
+    padding: 10px 0;
+}
+
+.technology-icons {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+    padding: 20px;
+    width: 80%;
+    justify-content: center;
+}
+
+.icon-box {
+    border: 3px solid #444;
+    border-radius: 15px;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.icon-box:hover {
+    transform: scale(1.1);
+}
+
+.icon {
+    font-size: 6rem;
+}
+
+.html { color: #e44d26; }
+.css { color: #1572b6; }
+.javascript { color: #f7df1e; }
+.react { color: cyan; }
+.mysql { color: white; }
+.nodejs { color: green; }
+.mongodb { color: green; }
+.java { color: #007396; }
+.cplusplus { color: #00599c; }
+.glitch { color: #3333FF; }
+.firebase { color: #FFCA28; }
+
+@media (max-width: 1024px) {
+    .technology-icons {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .technology-icons {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .technology-icons {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}

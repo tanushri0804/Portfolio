@@ -1,23 +1,51 @@
 import React from "react";
-import "../styles/footer.css";
-import { FaLinkedin, FaGithub, FaEnvelope } from "react-icons/fa"; // Icons
+import { FaGithub, FaInstagram, FaLinkedinIn } from "react-icons/fa";
+import "./Footer.css";
 
 const Footer = () => {
   return (
-    <footer id="footer" className="footer">
-      <div className="footer-content">
-        <p className="footer-text">© {new Date().getFullYear()} Tanu Shri. All Rights Reserved.</p>
+    <footer className="footer">
+      <div className="footer-container">
+        {/* Logo Section */}
+        <div className="footer-logo">
+          <h2 className="logo-title">TANU SHRI</h2>
+          <h3 className="logo-subtitle">PORTFOLIO</h3>
+        </div>
 
-        <div className="social-icons">
-          <a href="https://www.linkedin.com/in/tanu-shri-76b7a1242/" target="_blank" rel="noopener noreferrer">
-            <FaLinkedin className="icon" />
+        {/* Location Section */}
+        <div className="footer-section">
+          <h3>Location :</h3>
+          <a 
+            href="https://www.google.com/maps/search/?api=1&query=Raja+Garden,+Ganpati+Dham,+Phase+2,+Laksar+Rd,+Haridwar,+Uttarakhand+249408,+India" 
+            target="_blank" 
+            rel="noopener noreferrer"
+          >
+            <p>Vill. Matlabpur</p>
+            <p>Roorkee, Uttarakhand 247667, India</p>
           </a>
-          <a href="https://github.com/tanushri0804" target="_blank" rel="noopener noreferrer">
-            <FaGithub className="icon" />
-          </a>
-          <a href="mailto:tanushri98371@gmail.com">
-            <FaEnvelope className="icon" />
-          </a>
+        </div>
+
+        {/* Contact Section */}
+        <div className="footer-section">
+          <h3>Reach out :</h3>
+          <a href="mailto:tanushri98371@gmail.com">tanushri98371@gmail.com</a>
+          <p><a href="tel:+919917948203">+91 9917948203</a></p>
+        </div>
+
+        {/* Social Media Section */}
+        <div className="footer-section">
+          <h3>Connect :</h3>
+          <div className="social-icons">
+            <a href="https://github.com/tanushri0804" target="_blank" rel="noopener noreferrer">
+              <FaGithub />
+            </a>
+            <a href="https://www.linkedin.com/in/tanu-shri-76b7a1242/" target="_blank" rel="noopener noreferrer">
+              <FaLinkedinIn />
+            </a>
+            <a href="https://www.instagram.com/tanu_shrii.08/" target="_blank" rel="noopener noreferrer">
+              <FaInstagram />
+            </a>
+          </div>
         </div>
       </div>
     </footer>

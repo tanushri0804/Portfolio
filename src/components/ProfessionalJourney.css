@@ -1,0 +1,83 @@
+.professional-journey {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 60px 10%;
+    background: linear-gradient(90deg, #0a192f, #0f3057);
+    color: white;
+    flex-direction: row-reverse; /* This swaps the order */
+}
+
+.content {
+    flex: 1;
+    max-width: 60%;
+    text-align: left;
+}
+
+.title {
+    font-size: 2rem;
+    color: #39c0ed;
+    font-weight: 300;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    font-style: italic;
+    margin-bottom: 10px;
+}
+
+.underline {
+    width: 50px;
+    height: 2px;
+    background-color: white;
+    margin-bottom: 20px;
+}
+
+.journey-list {
+    list-style: none;
+    padding: 0;
+}
+
+.journey-list li {
+    margin-bottom: 15px;
+    font-size: 1rem;
+    line-height: 1.5;
+    position: relative;
+    padding-left: 20px;
+}
+
+.journey-list li::before {
+    content: "•";
+    color: #39c0ed;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
+
+.profile-image {
+    flex: 1;
+    text-align: center; /* Centers the image */
+}
+
+.profile-image img {
+    max-width: 350px;
+    border-radius: 10px;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .professional-journey {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .content {
+        max-width: 100%;
+        text-align: center;
+    }
+
+    .profile-image img {
+        max-width: 250px;
+        margin-top: 20px;
+    }
+}

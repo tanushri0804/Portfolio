@@ -1,0 +1,103 @@
+.badges-section {
+    padding: 60px 10%;
+    background: linear-gradient(90deg, #0f3057, #0a192f);
+    color: white;
+}
+
+.badges-title {
+    font-size: 2rem;
+    color: #39c0ed;
+    font-weight: 300;
+    text-align: left;
+}
+
+.badges-subtitle {
+    font-size: 1.2rem;
+    font-style: italic;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+.underline {
+    width: 50px;
+    height: 2px;
+    background-color: white;
+    margin-left: 0;
+}
+
+.badges-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.badge-card {
+    background-color: #002244;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+.badge-card:hover {
+    transform: scale(1.05);
+}
+
+.badge-card img {
+    width: 150px;
+    height: 100px;
+    border-radius: 10px;
+}
+
+.badge-card p {
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+.view-link {
+    color: #f89b29;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.view-link:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 1024px) {
+    .badges-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .badges-container {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+.view-more-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.view-more-btn {
+    background-color: #fae0c3;
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+    border: 2px solid #f4a261;
+    text-decoration: none;
+}
+
+.view-more-btn:hover {
+    background-color: #f4a261;
+    color: white;
+}

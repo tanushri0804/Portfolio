@@ -1,0 +1,180 @@
+.contact-section {
+    background: url("https://www.shutterstock.com/image-vector/contact-us-customer-support-hotline-600nw-2407847227.jpg") no-repeat center center/cover;
+    padding: 60px 10%;
+    color: white;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-attachment: fixed;
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.contact-container,
+.contact-form-container,
+.contact-info-container,
+.contact-title,
+.subtitle,
+.underline,
+.contact-form,
+.google-map,
+.contact-info,
+.social-icons {
+    position: relative;
+    z-index: 2;
+}
+
+.contact-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 200px;
+    flex-wrap: wrap;
+}
+
+.contact-form-container {
+    flex: 1;
+    max-width: 500px;
+}
+
+.contact-title {
+    font-size: 2rem;
+    color: #39c0ed;
+    margin-bottom: 20px;
+}
+
+.contact-form label {
+    display: block;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+.contact-form span {
+    color: red;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: none;
+    border-radius: 5px;
+    background-color: #001a33;
+    color: white;
+    font-size: 1rem;
+}
+
+.contact-form textarea {
+    resize: none;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 12px;
+    background: #39c0ed;
+    border: none;
+    color: black;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 15px;
+    border-radius: 5px;
+}
+
+.submit-btn:hover {
+    background: #26a4cc;
+}
+
+.contact-info-container {
+    flex: 1;
+    max-width: 500px;
+}
+
+.google-map {
+    width: 100%;
+    height: 250px;
+    border-radius: 10px;
+    border: none;
+    margin-bottom: 20px;
+}
+
+.contact-info h3 {
+    font-size: 1.5rem;
+    color: #f89b29;
+    margin-bottom: 10px;
+}
+
+.contact-info p a {
+    color: white;
+    text-decoration: none;
+}
+
+.contact-info p a:hover {
+    text-decoration: underline;
+}
+
+.social-icons {
+    display: flex;
+    gap: 40px;
+    margin-top: 10px;
+}
+
+.social-icons a {
+    color: white;
+    font-size: 1.5rem;
+    transition: 0.3s;
+}
+
+.social-icons a:hover {
+    color: #f89b29;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    font-style: italic;
+    margin-bottom: 10px;
+}
+
+.underline {
+    width: 50px;
+    height: 2px;
+    background-color: white;
+    margin-bottom: 20px;
+}
+
+@media (max-width: 1024px) {
+    .contact-form-container, .contact-info-container {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 1024px) {
+    .contact-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+}
+
+.contact-info p {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.contact-info p i {
+    font-size: 1.2rem;
+    color: white;
+}

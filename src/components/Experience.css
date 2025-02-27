@@ -1,0 +1,197 @@
+.experience-container {
+  padding: 60px 10%;
+  background: linear-gradient(90deg, #0a253f, #071225);
+  color: white;
+}
+
+.experience-title {
+  font-size: 2rem;
+  color: #1eb8f5;
+}
+
+.experience-subtitle {
+  font-style: italic;
+  margin-bottom: 20px;
+}
+
+.underline {
+  width: 50px;
+  height: 2px;
+  background-color: white;
+  margin-left: 0;
+}
+
+.experience-grid {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 50px;
+  padding: 20px;
+}
+
+.experience-card {
+  background: #d3d3d3;
+  color: #0c3b5b;
+  width: 350px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease-in-out;
+}
+
+.experience-card:hover {
+  transform: translateY(-5px);
+}
+
+.exp-image {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+.experience-content {
+  padding: 20px;
+}
+
+.duration {
+  font-size: 0.9rem;
+  color: gray;
+}
+
+.learn-more {
+  background: #1eb8f5;
+  color: black;
+  padding: 10px 15px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 10px;
+  display: block;
+  width: 100%;
+}
+
+.learn-more:hover {
+  background: #1692c7;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  z-index: 1000;
+}
+
+.modal-content {
+  display: flex;
+  background: #0c3b5b;
+  color: white;
+  border-radius: 10px;
+  width: 80%;
+  max-width: 700px;
+  position: relative;
+  padding: 20px;
+  z-index: 1001;
+}
+
+.modal-header {
+  width: 35%;
+  background: #062a4d;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.modal-logo {
+  width: 80%;
+  max-width: 150px;
+}
+
+.modal-body {
+  width: 65%;
+  padding: 20px;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  font-size: 1.5rem;
+  color: white;
+}
+
+.modal-duration {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.modal-grade {
+  margin-top: 10px;
+  font-weight: bold;
+  color: #1eb8f5;
+}
+
+.view-link {
+  color: #1eb8f5;
+  text-decoration: none;
+  font-weight: bold;
+  display: inline-block;
+  margin-top: 10px;
+}
+
+.view-link:hover {
+  text-decoration: underline;
+}
+
+body.modal-open {
+  overflow: hidden;
+}
+
+.certificate-button {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 10px 15px;
+  background-color: #1eb8f5;
+  color: black;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.certificate-button:hover {
+  background-color: #1692c7;
+}
+
+@media (max-width: 768px) {
+  .experience-container {
+    padding: 40px 5%;
+  }
+
+  .experience-grid {
+    gap: 15px;
+  }
+
+  .modal-content {
+    flex-direction: column;
+    width: 95%;
+  }
+
+  .modal-header {
+    width: 100%;
+    border-radius: 10px 10px 0 0;
+  }
+
+  .modal-body {
+    width: 100%;
+  }
+}
