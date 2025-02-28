@@ -3,5 +3,5 @@ import react from '@vitejs/plugin-react';
 
 export default defineConfig({
   plugins: [react()],
-  base: '/Portfolio/',  // Add a trailing slash
+  base: "/Portfolio/",  // Add a trailing slash
 });
