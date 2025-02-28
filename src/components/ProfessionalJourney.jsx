@@ -1,5 +1,5 @@
 import React from "react";
-// import profileImage from "../assets/image1.gif";
+import profileImage from "../assets/laptop.gif";
 import "./ProfessionalJourney.css";
 
 const ProfessionalJourney = () => {
@@ -29,7 +29,7 @@ const ProfessionalJourney = () => {
       </div>
 
       <div className="profile-image">
-        <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExZnVvcXI2bXg1NXh5Y3c0d2lrM29mb3ZsejgxbHp5bGE5eTFzcDZieCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/RfT7W8lXpSSYbXbakl/giphy.gif" alt="Profile" />
+        <img src={profileImage} alt="Profile" />
       </div>
     </section>
   );
