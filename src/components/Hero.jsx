@@ -16,7 +16,7 @@ const Hero = ({ scrollToContact }) => {
             href="https://drive.google.com/file/d/14wCXi6Gjigimb0QloksqvHMzBaWToCxW/view?usp=sharing"
             className="btn" target="_blank" rel="noopener noreferrer"
           >
-            Download CV
+            Download Resume
           </a>
           <button className="btn" onClick={scrollToContact}>
             Let's Connect <FaPaperPlane className="iconn" />
