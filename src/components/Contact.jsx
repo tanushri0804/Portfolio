@@ -92,7 +92,7 @@ const Contact = forwardRef(function Contact(props, ref) {
                 <div className="contact-info-container">
                     <iframe
                         title="Google Map"
-                        src="https://www.google.com/maps/place/Roorkee..."
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d110723.25093466156!2d77.81242449152776!3d29.861343864339428!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390eb36e08b35119%3A0x798f5dc25ebd0a72!2sRoorkee%2C%20Uttarakhand!5e0!3m2!1sen!2sin!4v1741088696999!5m2!1sen!2sin"
                         allowFullScreen={true}
                         loading="lazy"
                         className="google-map"

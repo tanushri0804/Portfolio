@@ -86,3 +86,76 @@ body {
     height: 150px;
     margin-top: 10px;
   }
+  /* ✅ Media Queries for Mobile Responsiveness */
+@media (max-width: 1024px) {
+  .education-container {
+      max-width: 80%;
+  }
+
+  .education-details {
+      width: 90%;
+  }
+}
+
+@media (max-width: 768px) {
+  .education-container {
+      max-width: 95%;
+      margin: 10px auto;
+      padding: 15px;
+  }
+
+  .education-title {
+      font-size: 28px;
+  }
+
+  .education-details {
+      padding: 15px;
+  }
+
+  .education-details h2 {
+      font-size: 20px;
+  }
+
+  .education-details h3 {
+      font-size: 16px;
+  }
+
+  .education-details p {
+      font-size: 16px;
+  }
+
+  .logoo {
+      width: 100px;
+  }
+}
+
+@media (max-width: 480px) {
+  .education-container {
+      max-width: 100%;
+      padding: 10px;
+  }
+
+  .education-title {
+      font-size: 24px;
+  }
+
+  .education-details {
+      padding: 10px;
+  }
+
+  .education-details h2 {
+      font-size: 18px;
+  }
+
+  .education-details h3 {
+      font-size: 14px;
+  }
+
+  .education-details p {
+      font-size: 14px;
+  }
+
+  .logoo {
+      width: 80px;
+  }
+}

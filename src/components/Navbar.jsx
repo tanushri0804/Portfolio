@@ -18,7 +18,7 @@ const Navbar = ({ scrollToHero, scrollToAbout, scrollToWork, scrollToContact, sc
         <ul className={`nav-links ${menuOpen ? "open" : ""}`}>
           <li><a href="#home" onClick={(e) => { e.preventDefault(); scrollToHero(); }}>HOME</a></li>
           <li><a href="#about" onClick={(e) => { e.preventDefault(); scrollToAbout(); }}>ABOUT</a></li>
-          <li><a href="#education" onClick={(e) => { e.preventDefault(); scrollToEducation(); }}>EDU</a></li>
+          <li><a href="#education" onClick={(e) => { e.preventDefault(); scrollToEducation(); }}>EDUCATION</a></li>
           <li><a href="#work" onClick={(e) => { e.preventDefault(); scrollToWork(); }}>WORK</a></li>
           <li><a href="#contact" onClick={(e) => { e.preventDefault(); scrollToContact(); }}>CONTACT</a></li>
         </ul>
