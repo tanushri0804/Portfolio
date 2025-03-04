@@ -3,7 +3,7 @@
     align-items: center;
     justify-content: space-between;
     padding: 60px 10%;
-    background: linear-gradient(90deg, #0a192f, #0f3057);
+    background: linear-gradient(90deg, #292b2b, #485757);
     color: white;
     flex-direction: row-reverse; /* This swaps the order */
 }

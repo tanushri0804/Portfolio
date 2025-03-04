@@ -5,7 +5,7 @@ import "./Hero.css";
 
 const Hero = ({ scrollToContact }) => {
   return (
-    <header className="hero" style={{ backgroundImage: `url("https://cdn.pixabay.com/photo/2019/08/21/16/18/laptop-4421417_1280.jpg")` }}>
+    <header className="hero" style={{ backgroundImage: `url("https://www.jotscroll.com/wp-content/uploads/2023/07/word-image-17791-1-e1690348326450.png")` }}>
       <div className="overlay">
         <h1>TANU SHRI</h1>
         <h2><i>Frontend Developer</i></h2>

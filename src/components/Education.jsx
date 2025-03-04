@@ -35,7 +35,7 @@ const Education = () => {
           <p><strong>PERCENTAGE:</strong> 81%</p>
         </div>
         <div className="education-logo">
-          <img src="https://play-lh.googleusercontent.com/WJSKycH3EDHRK7kVvMdA7MsgOpRQnkbogkAUc2mwlXquPC45V1tjklaxrq4LafDe8Mg=w240-h480-rw" alt="School Logo" className="logoo" />
+          <img src="https://yt3.googleusercontent.com/Irgi7ybSY9dkcwEbRhSURtgJfO_pSVKwbRIif7NF8p6nAej5ah9pAiZLiJQJZ24Ew-_U3Efggg=s900-c-k-c0x00ffffff-no-rj" alt="School Logo" className="logoo" />
         </div>
       </div>
     </div>

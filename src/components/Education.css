@@ -1,5 +1,5 @@
 body {
-    background-color: #081836;
+    background-color: #292b2b;
     color: #39c0ed;
     font-family: 'Times New Roman', serif;
   }
@@ -9,14 +9,14 @@ body {
     margin: 20px auto;
     padding: 20px;
     border-radius: 12px;
-    background-color: #081836;
+    background-color: #292b2b;
     text-align: left;
     margin-left: 22%;
 }
 
   .education-section{
     display: flex;
-    background-color:#081836;
+    background-color:#292b2b;
   }
   .education-logo{
     display: flex;

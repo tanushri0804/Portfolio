@@ -35,7 +35,7 @@ h1 {
 
 h2 {
     font-size: 1.5rem;
-    color: #f4a261;
+    color: #7ff461;
     margin: 10px 0;
     font-weight: 300;
 
@@ -49,20 +49,20 @@ p {
 }
 
 .btn {
-    background: #fae0c3 ;
+    background: #c3fac8 ;
     color: black;
     padding: 8px 16px;
     text-decoration: none;
     font-size: 0.9rem;
     border-radius: 20px;
-    border-color: #f4a261;
+    border-color: #61f475;
     margin-top: 1px;
     transition: 0.3s;
-    border: 2px solid #f4a261;
+    border: 2px solid #7ff461;
     cursor: pointer;}
 
 .btn:hover {
-    background: #f4a261;
+    background: #61f461;
     color: white;
 }
 .button-container {

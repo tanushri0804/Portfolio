@@ -1,5 +1,5 @@
 .technology-container {
-    background-color: #050F2C;
+    background-color: #292b2b;
     border-bottom: 1px solid #333;
     padding-bottom: 40px;
     text-align: center;
@@ -19,7 +19,7 @@
     padding-bottom: 20px;
     position: sticky;
     top: 0;
-    background-color: #050F2C;
+    background-color: #292b2b;
     z-index: 10;
     padding: 10px 0;
 }

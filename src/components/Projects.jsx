@@ -95,7 +95,7 @@ const Projects = () => {
 
       {/* GitHub Button */}
       <a
-        href="https://github.com/Priyankanegi28"
+        href="https://github.com/tanushri0804"
         target="_blank"
         rel="noopener noreferrer"
       >
