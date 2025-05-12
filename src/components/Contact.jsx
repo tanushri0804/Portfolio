@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { forwardRef, useState } from "react";
 import "./Contact.css";
 
-const Contact = forwardRef(function Contact(props, ref) {
+const Contact = forwardRef((props, ref) => {
     const [formData, setFormData] = useState({
         name: "",
         email: "",
@@ -19,10 +19,10 @@ const Contact = forwardRef(function Contact(props, ref) {
     const handleSubmit = async (e) => {
         e.preventDefault();
         setIsSubmitting(true);
-    
+
         try {
             const response = await axios.post(
-                "https://pentagonal-summer-hydrogen.glitch.me/send-email", // Update this
+                "https://hill-elderly-sesame.glitch.me/send-email",
                 formData
             );
             alert(response.data.success || "Message sent successfully!");
@@ -34,7 +34,6 @@ const Contact = forwardRef(function Contact(props, ref) {
             setIsSubmitting(false);
         }
     };
-    
 
     return (
         <div className="contact-section" ref={ref}>
@@ -93,7 +92,7 @@ const Contact = forwardRef(function Contact(props, ref) {
                     <iframe
                         title="Google Map"
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d110723.25093466156!2d77.81242449152776!3d29.861343864339428!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390eb36e08b35119%3A0x798f5dc25ebd0a72!2sRoorkee%2C%20Uttarakhand!5e0!3m2!1sen!2sin!4v1741088696999!5m2!1sen!2sin"
-                        allowFullScreen={true}
+                        allowFullScreen
                         loading="lazy"
                         className="google-map"
                     ></iframe>
@@ -124,7 +123,7 @@ const Contact = forwardRef(function Contact(props, ref) {
                         <h3>Location</h3>
                         <p>
                             <i className="fas fa-map-marker-alt"></i>
-                            <a href="https://maps.app.goo.gl/U4LubnGWBm2BLHkVA" target="_blank" rel="noopener noreferrer">
+                            <a href="https://maps.app.goo.gl/U4LubnGWBm2BLHkVA" target="_blank">
                                 Vill, Matlabpur, Roorkee, Uttarakhand 247667, India
                             </a>
                         </p>
@@ -134,7 +133,5 @@ const Contact = forwardRef(function Contact(props, ref) {
         </div>
     );
 });
-
-Contact.displayName = "Contact"; // Explicitly setting the display name
 
 export default Contact;

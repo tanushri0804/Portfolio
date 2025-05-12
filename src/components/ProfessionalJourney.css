@@ -1,83 +1,188 @@
 .professional-journey {
+    padding: 100px 0;
+    background: linear-gradient(135deg, #0a192f 0%, #112240 100%);
+    color: #ccd6f6;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .container {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 60px 10%;
-    background: linear-gradient(90deg, #292b2b, #485757);
-    color: white;
-    flex-direction: row-reverse; /* This swaps the order */
-}
-
-.content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 50px;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .content {
     flex: 1;
-    max-width: 60%;
-    text-align: left;
-}
-
-.title {
-    font-size: 2rem;
-    color: #39c0ed;
-    font-weight: 300;
-}
-
-.subtitle {
+    max-width: 55%;
+    padding-right: 50px;
+  }
+  
+  .title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: #e6f1ff;
+  }
+  
+  .title-highlight {
+    color: #64ffda;
+  }
+  
+  .subtitle {
     font-size: 1.2rem;
+    margin-bottom: 25px;
+    color: #8892b0;
     font-style: italic;
-    margin-bottom: 10px;
-}
-
-.underline {
-    width: 50px;
-    height: 2px;
-    background-color: white;
-    margin-bottom: 20px;
-}
-
-.journey-list {
+  }
+  
+  .underline {
+    width: 70px;
+    height: 3px;
+    background: linear-gradient(90deg, #64ffda, #0a192f);
+    margin-bottom: 30px;
+    border-radius: 3px;
+  }
+  
+  .journey-list {
     list-style: none;
     padding: 0;
-}
-
-.journey-list li {
-    margin-bottom: 15px;
-    font-size: 1rem;
-    line-height: 1.5;
+  }
+  
+  .journey-list li {
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+    line-height: 1.6;
     position: relative;
-    padding-left: 20px;
-}
-
-.journey-list li::before {
-    content: "•";
-    color: #39c0ed;
-    font-weight: bold;
+    padding-left: 30px;
+  }
+  
+  .journey-list li::before {
+    content: "▹";
+    color: #64ffda;
     position: absolute;
     left: 0;
-}
-
-.profile-image {
+    font-size: 1.2rem;
+  }
+  
+  .highlight {
+    color: #64ffda;
+    font-weight: 500;
+  }
+  
+  .profile-image {
     flex: 1;
-    text-align: center; /* Centers the image */
-}
-
-.profile-image img {
+    display: flex;
+    justify-content: center;
+    position: relative;
+  }
+  
+  .image-wrapper {
+    position: relative;
     max-width: 350px;
+  }
+  
+  .floating-image {
+    width: 100%;
+    height: auto;
     border-radius: 10px;
-}
-
-/* Responsive */
-@media (max-width: 1024px) {
-    .professional-journey {
-        flex-direction: column;
-        text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .floating-image:hover {
+    transform: translateY(-5px);
+  }
+  
+  .tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+  }
+  
+  .tech-stack span {
+    background: rgba(100, 255, 218, 0.1);
+    color: #64ffda;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    border: 1px solid #64ffda;
+    transition: all 0.3s ease;
+  }
+  
+  .tech-stack span:hover {
+    background: rgba(100, 255, 218, 0.2);
+    transform: translateY(-2px);
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 1024px) {
+    .container {
+      flex-direction: column;
+      padding: 0 30px;
     }
-
+  
     .content {
-        max-width: 100%;
-        text-align: center;
+      max-width: 100%;
+      padding-right: 0;
+      margin-top: 50px;
+      text-align: center;
     }
-
-    .profile-image img {
-        max-width: 250px;
-        margin-top: 20px;
+  
+    .journey-list {
+      text-align: left;
     }
-}
+  
+    .underline {
+      margin-left: auto;
+      margin-right: auto;
+    }
+  
+    .image-wrapper {
+      max-width: 280px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .professional-journey {
+      padding: 80px 0;
+    }
+  
+    .title {
+      font-size: 2rem;
+    }
+  
+    .journey-list li {
+      font-size: 1rem;
+      padding-left: 25px;
+    }
+    
+    .tech-stack {
+      gap: 8px;
+    }
+    
+    .tech-stack span {
+      padding: 4px 12px;
+      font-size: 0.8rem;
+    }
+  }
+  
+  /* Animation */
+  @keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+  }
+  
+  .floating-image {
+    animation: float 6s ease-in-out infinite;
+  }

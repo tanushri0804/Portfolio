@@ -1,161 +1,244 @@
-body {
-    background-color: #292b2b;
-    color: #39c0ed;
-    font-family: 'Times New Roman', serif;
-  }
-  
-  .education-container {
-    max-width: 60%;
-    margin: 20px auto;
-    padding: 20px;
-    border-radius: 12px;
-    background-color: #292b2b;
-    text-align: left;
-    margin-left: 22%;
+.education-container {
+  padding: 80px 10%;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  color: #e2e8f0;
+  position: relative;
+  overflow: hidden;
 }
 
-  .education-section{
-    display: flex;
-    background-color:#292b2b;
-  }
-  .education-logo{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  
-  }
-  .edu-logo{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-  .education-title {
-    font-size: 32px;
-    font-weight: bold;
-    color: white;
-    margin-bottom: 20px;
-  }
-  
-  .education-details {
-    margin-top: 20px;
-    padding: 20px;
-    border-radius: 8px;
-    width: 750px;
-  }
-  .education-details h1{
-    color: #CDEEFB;
-  }
-  
-  .education-details h2 {
-    color: white;
-    margin-bottom: 10px;
-    font-size: 22px;
-    font-weight: bold;
-  }
-  
-  .education-details h3 {
-    color: white;
-    margin-bottom: 15px;
-    font-size: 18px;
-    font-weight: bold;
-  }
-  
-  .education-details p {
-    color: #DDD;
-    line-height: 1.6;
-    font-size: 18px;
-  }
-  
-  .education-details p strong {
-    color: white;
-  }
-  
-  .education-details a {
-    color: white;
-    text-decoration: none;
-  }
-  
-  .education-details a:hover {
-    text-decoration: underline;
-  }
-  
-  .logoo {
-    width: 150px;
-    height: 150px;
-    margin-top: 10px;
-  }
-  /* ✅ Media Queries for Mobile Responsiveness */
+.education-header {
+  text-align: center;
+  margin-bottom: 60px;
+  position: relative;
+}
+
+.education-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  background: linear-gradient(90deg, #64ffda, #38bdf8);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 15px;
+}
+
+.title-decoration {
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, #f472b6, #f59e0b);
+  margin: 0 auto;
+  border-radius: 2px;
+}
+
+.education-timeline {
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding-left: 50px;
+}
+
+.education-timeline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 25px;
+  height: 100%;
+  width: 2px;
+  background: linear-gradient(to bottom, #64ffda, #38bdf8);
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 50px;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: -38px;
+  top: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #64ffda;
+  box-shadow: 0 0 0 4px rgba(100, 255, 218, 0.2);
+}
+
+.timeline-content {
+  position: relative;
+  padding-left: 30px;
+}
+
+.education-card {
+  background: rgba(30, 41, 59, 0.7);
+  border-radius: 15px;
+  padding: 30px;
+  display: flex;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(100, 255, 218, 0.1);
+  transition: all 0.3s ease;
+}
+
+.education-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+  border-color: rgba(100, 255, 218, 0.3);
+}
+
+.education-details {
+  flex: 1;
+}
+
+.degree {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #e2e8f0;
+  margin-bottom: 5px;
+}
+
+.specialization {
+  font-size: 1.2rem;
+  color: #94a3b8;
+  margin-bottom: 20px;
+  font-weight: 400;
+}
+
+.education-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.education-meta span {
+  display: block;
+  font-size: 1rem;
+}
+
+.duration {
+  color: #64ffda;
+  font-weight: 500;
+}
+
+.institution, .university, .board {
+  color: #cbd5e1;
+}
+
+.institution a, .university a {
+  color: #38bdf8;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.institution a:hover, .university a:hover {
+  color: #64ffda;
+  text-decoration: underline;
+}
+
+.grade {
+  color: #cbd5e1;
+}
+
+.highlight {
+  color: #f59e0b;
+  font-weight: 600;
+}
+
+.education-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 30px;
+}
+
+.logo-container {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: rgba(100, 255, 218, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid rgba(100, 255, 218, 0.2);
+  transition: all 0.3s ease;
+}
+
+.education-card:hover .logo-container {
+  transform: scale(1.05);
+  background: rgba(100, 255, 218, 0.2);
+  border-color: rgba(100, 255, 218, 0.4);
+}
+
+.university-logo, .school-logo {
+  max-width: 80px;
+  max-height: 80px;
+  object-fit: contain;
+}
+
+/* Responsive Design */
 @media (max-width: 1024px) {
   .education-container {
-      max-width: 80%;
+    padding: 60px 5%;
   }
-
-  .education-details {
-      width: 90%;
+  
+  .education-card {
+    flex-direction: column;
+  }
+  
+  .education-logo {
+    padding-left: 0;
+    padding-top: 30px;
+    justify-content: flex-start;
   }
 }
 
 @media (max-width: 768px) {
-  .education-container {
-      max-width: 95%;
-      margin: 10px auto;
-      padding: 15px;
-  }
-
   .education-title {
-      font-size: 28px;
+    font-size: 2rem;
   }
-
-  .education-details {
-      padding: 15px;
+  
+  .education-timeline {
+    padding-left: 30px;
   }
-
-  .education-details h2 {
-      font-size: 20px;
+  
+  .education-timeline::before {
+    left: 15px;
   }
-
-  .education-details h3 {
-      font-size: 16px;
+  
+  .timeline-dot {
+    left: -28px;
+    width: 16px;
+    height: 16px;
   }
-
-  .education-details p {
-      font-size: 16px;
+  
+  .degree {
+    font-size: 1.5rem;
   }
-
-  .logoo {
-      width: 100px;
+  
+  .specialization {
+    font-size: 1.1rem;
   }
 }
 
 @media (max-width: 480px) {
   .education-container {
-      max-width: 100%;
-      padding: 10px;
+    padding: 40px 20px;
   }
-
+  
   .education-title {
-      font-size: 24px;
+    font-size: 1.8rem;
   }
-
-  .education-details {
-      padding: 10px;
+  
+  .education-meta span {
+    font-size: 0.9rem;
   }
-
-  .education-details h2 {
-      font-size: 18px;
+  
+  .logo-container {
+    width: 80px;
+    height: 80px;
   }
-
-  .education-details h3 {
-      font-size: 14px;
-  }
-
-  .education-details p {
-      font-size: 14px;
-  }
-
-  .logoo {
-      width: 80px;
+  
+  .university-logo, .school-logo {
+    max-width: 60px;
+    max-height: 60px;
   }
 }

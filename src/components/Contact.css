@@ -1,5 +1,5 @@
 .contact-section {
-    background: url("https://www.bgppl.com/images/contact-banner.jpg") no-repeat center center/cover;
+    background: url('../assets/contact.webp') no-repeat center center/cover;
     padding: 60px 10%;
     color: white;
     min-height: 100vh;
@@ -71,7 +71,7 @@
     margin-top: 5px;
     border: none;
     border-radius: 5px;
-    background-color: #292b2b;
+    background-color: #001a33;
     color: white;
     font-size: 1rem;
 }

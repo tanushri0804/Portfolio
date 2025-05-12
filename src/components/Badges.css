@@ -1,6 +1,6 @@
 .badges-section {
     padding: 60px 10%;
-    background: linear-gradient(90deg, #484b4b, #292b2b);
+    background: linear-gradient(90deg, #0f3057, #0a192f);
     color: white;
 }
 
@@ -33,7 +33,7 @@
 }
 
 .badge-card {
-    background-color: #292b2b;
+    background-color: #002244;
     padding: 20px;
     border-radius: 10px;
     text-align: center;

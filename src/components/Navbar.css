@@ -1,47 +1,59 @@
 .navbar {
-  background: #292b2b;
-  padding: 20px 0;
+  background: linear-gradient(135deg, #0A1A41 0%, #1A3A8F 100%);
+  padding: 15px 0;
   color: white;
   position: fixed;
   width: 100%;
   top: 0;
   z-index: 1000;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 100px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 30px;
 }
 
 .logo {
-  font-size: 22px;
-  font-weight: 500;
-  margin-right: 100px;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  background: linear-gradient(90deg, #FFFFFF 0%, #E0E0E0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+  transition: all 0.3s ease;
 }
 
-.logo span {
-  color: #3498db;
+.logo:hover {
+  transform: scale(1.05);
 }
 
 .nav-links {
   list-style: none;
   display: flex;
-  margin-left: -50px;
+  gap: 30px;
 }
 
 .nav-links li {
-  margin-left: 20px;
   position: relative;
 }
 
 .nav-links a {
-  color: white;
+  color: rgba(255, 255, 255, 0.9);
   text-decoration: none;
   font-weight: 500;
-  transition: 0.3s;
-  padding: 5px 0;
+  font-size: 16px;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  padding: 8px 0;
   display: inline-block;
 }
 
@@ -50,12 +62,16 @@
   display: block;
   width: 0;
   height: 2px;
-  background: white;
+  background: linear-gradient(90deg, #4FACFE 0%, #00F2FE 100%);
   transition: width 0.3s ease-in-out;
   position: absolute;
-  bottom: -5px;
-  left: 50%;
-  transform: translateX(-50%);
+  bottom: 0;
+  left: 0;
+}
+
+.nav-links a:hover {
+  color: white;
+  transform: translateY(-2px);
 }
 
 .nav-links a:hover::after {
@@ -63,38 +79,111 @@
 }
 
 .menu-icon {
-  font-size: 24px;
   display: none;
   cursor: pointer;
+  width: 30px;
+  height: 25px;
+  position: relative;
+  z-index: 1001;
+}
+
+.menu-icon span {
+  display: block;
+  position: absolute;
+  height: 3px;
+  width: 100%;
+  background: white;
+  border-radius: 3px;
+  opacity: 1;
+  left: 0;
+  transform: rotate(0deg);
+  transition: all 0.3s ease;
+}
+
+.menu-icon span:nth-child(1) {
+  top: 0;
+}
+
+.menu-icon span:nth-child(2) {
+  top: 10px;
+}
+
+.menu-icon span:nth-child(3) {
+  top: 20px;
+}
+
+.menu-icon.open span:nth-child(1) {
+  top: 10px;
+  transform: rotate(135deg);
+}
+
+.menu-icon.open span:nth-child(2) {
+  opacity: 0;
+  left: -30px;
+}
+
+.menu-icon.open span:nth-child(3) {
+  top: 10px;
+  transform: rotate(-135deg);
 }
 
 @media (max-width: 768px) {
+  .container {
+    padding: 0 20px;
+  }
+  
   .menu-icon {
-      display: block;
+    display: block;
   }
 
   .nav-links {
-      display: none;
-      flex-direction: column;
-      position: absolute;
-      top: 80px;
-      right: 10px;
-      background: #0A1A41;
-      border-radius: 5px;
-      width: 200px;
-      text-align: center;
-      padding: 10px 0;
+    display: none;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 70%;
+    max-width: 300px;
+    background: rgba(10, 26, 65, 0.98);
+    backdrop-filter: blur(10px);
+    padding: 80px 30px;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 1000;
   }
 
   .nav-links.open {
-      display: flex;
+    display: flex;
+    transform: translateX(0);
   }
 
   .nav-links li {
-      margin: 10px 0;
+    margin: 15px 0;
+    opacity: 0;
+    animation: fadeIn 0.5s ease forwards;
   }
 
-  .nav-links a::after {
-      bottom: 0;
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateX(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  .nav-links li:nth-child(1) { animation-delay: 0.1s; }
+  .nav-links li:nth-child(2) { animation-delay: 0.2s; }
+  .nav-links li:nth-child(3) { animation-delay: 0.3s; }
+  .nav-links li:nth-child(4) { animation-delay: 0.4s; }
+  .nav-links li:nth-child(5) { animation-delay: 0.5s; }
+
+  .nav-links a {
+    font-size: 18px;
+    padding: 10px 0;
   }
 }

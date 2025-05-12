@@ -16,11 +16,11 @@ const Footer = () => {
         <div className="footer-section">
           <h3>Location :</h3>
           <a 
-            href="https://maps.app.goo.gl/wV7pveL37YAor1Hu6" 
+            href="https://www.google.com/maps/search/?api=1&query=Raja+Garden,+Ganpati+Dham,+Phase+2,+Laksar+Rd,+Haridwar,+Uttarakhand+249408,+India" 
             target="_blank" 
             rel="noopener noreferrer"
           >
-            <p>Vill. Matlabpur</p>
+            <p>Vill. MAtlabpur</p>
             <p>Roorkee, Uttarakhand 247667, India</p>
           </a>
         </div>

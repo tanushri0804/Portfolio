@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { FaTimes } from "react-icons/fa";
+import { FaTimes, FaExternalLinkAlt } from "react-icons/fa";
 import "./Experience.css";
 
 const experiences = [
@@ -64,65 +64,88 @@ const Experience = () => {
   }, [selectedExperience]);
 
   return (
-    <div className="experience-container">
-      <h2 className="experience-title">EXPERIENCE HIGHLIGHTS</h2>
-      <p className="experience-subtitle">Showcasing my work experience</p>
-      <div className="underline"></div>
-
-      <div className="experience-grid">
-        {experiences.map((exp) => (
-          <div className="experience-card" key={exp.id}>
-            <img src={exp.image} alt={exp.title} className="exp-image" />
-            <div className="experience-content">
-              <h3>{exp.title}</h3>
-              <p className="duration">{exp.duration}</p>
-              <p>{exp.description}</p>
-              <button
-                onClick={() => setSelectedExperience(exp)}
-                className="learn-more"
-              >
-                Learn More
-              </button>
-            </div>
-          </div>
-        ))}
-      </div>
-
-      {/* Modal */}
-      {selectedExperience && (
-        <div className="modal-overlay">
-          <div className="modal-content">
-            <div className="modal-header">
-              <img
-                src={selectedExperience.image}
-                alt={selectedExperience.title}
-                className="modal-logo"
-              />
-              <FaTimes className="close-btn" onClick={() => setSelectedExperience(null)} />
-            </div>
-            <div className="modal-body">
-              <h2>{selectedExperience.title}</h2>
-              <p className="modal-duration">{selectedExperience.duration}</p>
-              <p>{selectedExperience.details}</p>
-              <strong>Skills:</strong> {selectedExperience.skills}
-              {selectedExperience.grade && <p className="modal-grade">{selectedExperience.grade}</p>}
-              
-              {/* Certificate Button */}
-              {selectedExperience.certificate && (
-                <a 
-                  href={selectedExperience.certificate} 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="certificate-button"
-                >
-                  View
-                </a>
-              )}
-            </div>
-          </div>
+    <section className="experience-section" id="experience">
+      <div className="experience-container">
+        <div className="section-header">
+          <h2 className="section-title">EXPERIENCE HIGHLIGHTS</h2>
+          <p className="section-subtitle">Showcasing my professional journey</p>
+          <div className="title-decoration"></div>
         </div>
-      )}
-    </div>
+
+        <div className="experience-grid">
+          {experiences.map((exp) => (
+            <div 
+              className="experience-card" 
+              key={exp.id}
+              onClick={() => setSelectedExperience(exp)}
+            >
+              <div className="card-image-container">
+                <img src={exp.image} alt={exp.title} className="card-image" />
+                <div className="card-overlay"></div>
+              </div>
+              <div className="card-content">
+                <h3 className="card-title">{exp.title}</h3>
+                <p className="card-duration">{exp.duration}</p>
+                <p className="card-description">{exp.description}</p>
+                <button className="learn-more-btn">
+                  View Details
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Modal */}
+        {selectedExperience && (
+          <div className="modal-overlay">
+            <div className="modal-container">
+              <div className="modal-header">
+                <img
+                  src={selectedExperience.image}
+                  alt={selectedExperience.title}
+                  className="modal-logo"
+                />
+                <button 
+                  className="close-btn"
+                  onClick={() => setSelectedExperience(null)}
+                >
+                  <FaTimes />
+                </button>
+              </div>
+              <div className="modal-body">
+                <h2 className="modal-title">{selectedExperience.title}</h2>
+                <p className="modal-duration">{selectedExperience.duration}</p>
+                <div className="modal-section">
+                  <h4 className="section-heading">About the Experience</h4>
+                  <p className="modal-text">{selectedExperience.details}</p>
+                </div>
+                <div className="modal-section">
+                  <h4 className="section-heading">Skills Gained</h4>
+                  <p className="modal-text">{selectedExperience.skills}</p>
+                </div>
+                {selectedExperience.grade && (
+                  <div className="modal-section">
+                    <h4 className="section-heading">Achievements</h4>
+                    <p className="modal-text highlight-text">{selectedExperience.grade}</p>
+                  </div>
+                )}
+                
+                {selectedExperience.certificate && (
+                  <a 
+                    href={selectedExperience.certificate} 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="certificate-btn"
+                  >
+                    View Certificate <FaExternalLinkAlt className="external-icon" />
+                  </a>
+                )}
+              </div>
+            </div>
+          </div>
+        )}
+      </div>
+    </section>
   );
 };
 
