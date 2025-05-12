@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import  { useEffect, useState } from "react";
 import { FaTimes, FaExternalLinkAlt } from "react-icons/fa";
 import "./Experience.css";
 
