@@ -12,24 +12,10 @@ const Footer = () => {
           <h3 className="logo-subtitle">PORTFOLIO</h3>
         </div>
 
-        {/* Location Section */}
-        <div className="footer-section">
-          <h3>Location :</h3>
-          <a 
-            href="https://www.google.com/maps/search/?api=1&query=Raja+Garden,+Ganpati+Dham,+Phase+2,+Laksar+Rd,+Haridwar,+Uttarakhand+249408,+India" 
-            target="_blank" 
-            rel="noopener noreferrer"
-          >
-            <p>Vill. MAtlabpur</p>
-            <p>Roorkee, Uttarakhand 247667, India</p>
-          </a>
-        </div>
-
         {/* Contact Section */}
         <div className="footer-section">
           <h3>Reach out :</h3>
           <a href="mailto:tanushri98371@gmail.com">tanushri98371@gmail.com</a>
-          <p><a href="tel:+919917948203">+91 9917948203</a></p>
         </div>
 
         {/* Social Media Section */}

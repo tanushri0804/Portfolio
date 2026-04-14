@@ -89,20 +89,8 @@ const Contact = forwardRef((props, ref) => {
                 </div>
 
                 <div className="contact-info-container">
-                    <iframe
-                        title="Google Map"
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d110723.25093466156!2d77.81242449152776!3d29.861343864339428!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390eb36e08b35119%3A0x798f5dc25ebd0a72!2sRoorkee%2C%20Uttarakhand!5e0!3m2!1sen!2sin!4v1741088696999!5m2!1sen!2sin"
-                        allowFullScreen
-                        loading="lazy"
-                        className="google-map"
-                    ></iframe>
-
                     <div className="contact-info">
                         <h3>Get in touch</h3>
-                        <p>
-                            <i className="fas fa-phone-alt"></i> 
-                            <a href="tel:+919917948203"> +91 9917948203</a>
-                        </p>
                         <p>
                             <i className="fas fa-envelope"></i> 
                             <a href="mailto:tanushri98371@gmail.com"> tanushri98371@gmail.com</a>
@@ -119,14 +107,6 @@ const Contact = forwardRef((props, ref) => {
                                 <i className="fab fa-instagram"></i>
                             </a>
                         </div>
-
-                        <h3>Location</h3>
-                        <p>
-                            <i className="fas fa-map-marker-alt"></i>
-                            <a href="https://maps.app.goo.gl/U4LubnGWBm2BLHkVA" target="_blank">
-                                Vill, Matlabpur, Roorkee, Uttarakhand 247667, India
-                            </a>
-                        </p>
                     </div>
                 </div>
             </div>
