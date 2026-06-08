@@ -50,7 +50,7 @@ const App = () => {
       />
       
       <div ref={heroRef}>
-        <Hero scrollToContact={scrollToContact} />
+        <Hero />
       </div>
       
       
