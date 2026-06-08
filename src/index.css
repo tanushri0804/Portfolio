@@ -1,12 +1,31 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800;900&display=swap");
+
+:root {
+  --bg-color: #050505;
+  --text-primary: #ffffff;
+  --text-secondary: #a1a1aa;
+  --accent-cyan: #64ffda;
+  --accent-blue: #3b82f6;
+  --accent-purple: #8b5cf6;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Arial", sans-serif;
 }
 
-html, body {
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
   width: 100%;
-  height: 100%;
+  min-height: 100%;
   overflow-x: hidden;
+  font-family: "Outfit", "Inter", sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  color-scheme: dark;
 }

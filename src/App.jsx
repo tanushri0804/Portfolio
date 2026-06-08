@@ -40,11 +40,12 @@ const App = () => {
 
   return (
     <>
-      <Navbar 
-        scrollToHero={scrollToHero} 
-        scrollToAbout={scrollToAbout} 
-        scrollToWork={scrollToWork} 
-        scrollToContact={scrollToContact} 
+      <Navbar
+        heroRef={heroRef}
+        scrollToHero={scrollToHero}
+        scrollToAbout={scrollToAbout}
+        scrollToWork={scrollToWork}
+        scrollToContact={scrollToContact}
         scrollToEducation={scrollToEducation}
       />
       
