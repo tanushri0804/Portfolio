@@ -36,6 +36,8 @@ const Navbar = ({
   useEffect(() => {
     if (location.pathname === "/education") {
       setActiveSection("education");
+    } else if (location.pathname === "/certifications") {
+      setActiveSection("certifications");
     }
   }, [location.pathname]);
 

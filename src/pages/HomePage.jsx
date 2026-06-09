@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import Badges from "../components/Badges";
+import Certifications from "../components/Certifications";
 import BrandTicker from "../components/BrandTicker";
 import Contact from "../components/Contact";
 import Experience from "../components/Experience";
@@ -58,7 +58,7 @@ const HomePage = () => {
       </div>
 
       <Projects />
-      <Badges />
+      <Certifications />
 
       <div ref={contactRef}>
         <Contact />
