@@ -2,12 +2,13 @@ import { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { motion, AnimatePresence } from "framer-motion";
 import { Home, User, GraduationCap, Briefcase, Mail } from "lucide-react";
+import { useLocation, useNavigate } from "react-router-dom";
 import "./Navbar.css";
 
 const navItems = [
   { icon: Home, label: "Home", id: "home" },
   { icon: User, label: "About", id: "about" },
-  { icon: GraduationCap, label: "Edu", id: "education" },
+  { icon: GraduationCap, label: "Edu", id: "education", path: "/education" },
   { icon: Briefcase, label: "Work", id: "work" },
   { icon: Mail, label: "Contact", id: "contact" },
 ];
@@ -18,18 +19,25 @@ const Navbar = ({
   scrollToAbout,
   scrollToWork,
   scrollToContact,
-  scrollToEducation,
 }) => {
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
+  const navigate = useNavigate();
+  const location = useLocation();
+  const isHome = location.pathname === "/";
 
   const scrollHandlers = {
     home: scrollToHero,
     about: scrollToAbout,
-    education: scrollToEducation,
     work: scrollToWork,
     contact: scrollToContact,
   };
+
+  useEffect(() => {
+    if (location.pathname === "/education") {
+      setActiveSection("education");
+    }
+  }, [location.pathname]);
 
   useEffect(() => {
     const updateScrolled = () => {
@@ -43,10 +51,9 @@ const Navbar = ({
 
     updateScrolled();
     window.addEventListener("scroll", updateScrolled, { passive: true });
-    document.addEventListener("scroll", updateScrolled, { passive: true });
 
     let observer;
-    if (heroRef?.current) {
+    if (isHome && heroRef?.current) {
       observer = new IntersectionObserver(
         ([entry]) => {
           setScrolled(!entry.isIntersecting);
@@ -58,14 +65,40 @@ const Navbar = ({
 
     return () => {
       window.removeEventListener("scroll", updateScrolled);
-      document.removeEventListener("scroll", updateScrolled);
       observer?.disconnect();
     };
-  }, [heroRef]);
+  }, [heroRef, isHome]);
+
+  const handleLogoClick = () => {
+    setActiveSection("home");
+    if (!isHome) {
+      navigate("/");
+    } else {
+      scrollToHero?.();
+    }
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   const handleNavClick = (item) => {
     setActiveSection(item.id);
-    scrollHandlers[item.id]?.();
+
+    if (item.path) {
+      navigate(item.path);
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      return;
+    }
+
+    const scrollToSection = scrollHandlers[item.id];
+
+    if (!isHome) {
+      navigate("/");
+      if (scrollToSection) {
+        setTimeout(scrollToSection, 200);
+      }
+      return;
+    }
+
+    scrollToSection?.();
   };
 
   return (
@@ -77,7 +110,7 @@ const Navbar = ({
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           whileHover={{ scale: 1.05 }}
-          onClick={scrollToHero}
+          onClick={handleLogoClick}
           style={{ cursor: "pointer" }}
         >
           <span className="logo-icon">T</span>
@@ -144,6 +177,7 @@ NavItem.propTypes = {
     icon: PropTypes.elementType.isRequired,
     label: PropTypes.string.isRequired,
     id: PropTypes.string.isRequired,
+    path: PropTypes.string,
   }).isRequired,
   onClick: PropTypes.func.isRequired,
   isActive: PropTypes.bool.isRequired,
@@ -151,11 +185,10 @@ NavItem.propTypes = {
 
 Navbar.propTypes = {
   heroRef: PropTypes.shape({ current: PropTypes.instanceOf(Element) }),
-  scrollToHero: PropTypes.func.isRequired,
-  scrollToAbout: PropTypes.func.isRequired,
-  scrollToWork: PropTypes.func.isRequired,
-  scrollToContact: PropTypes.func.isRequired,
-  scrollToEducation: PropTypes.func.isRequired,
+  scrollToHero: PropTypes.func,
+  scrollToAbout: PropTypes.func,
+  scrollToWork: PropTypes.func,
+  scrollToContact: PropTypes.func,
 };
 
 export default Navbar;

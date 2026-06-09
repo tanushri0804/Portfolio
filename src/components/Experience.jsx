@@ -1,149 +1,294 @@
-import  { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import { FaTimes, FaExternalLinkAlt } from "react-icons/fa";
+import { Briefcase, GraduationCap, MapPin } from "lucide-react";
 import "./Experience.css";
 
-const experiences = [
+const workExperience = [
   {
-    id: 4,
+    id: "creditor",
+    company: "Creditor Academy",
+    role: "Software Developer",
+    duration: "May 2025 – Present",
+    highlights: [
+      "Developed and maintained responsive user interfaces using React.js, ensuring cross-device compatibility and smooth user experience.",
+      "Contributed to Athena LMS website, implementing real-time features and optimizing performance to enhance usability.",
+      "Integrated REST APIs with frontend components, streamlining data flow and improving overall application functionality.",
+    ],
+    tags: ["React.js", "REST APIs", "Athena LMS", "Performance"],
+  },
+  {
+    id: "agenix",
+    company: "AgenixAI",
+    role: "Front-End Developer Intern",
+    duration: "Mar 2025 – May 2025",
+    location: "Remote",
+    highlights: [
+      "Developed responsive web interfaces using React.js, Tailwind CSS, HTML, and JavaScript.",
+      "Worked with Firebase for authentication, real-time database, and cloud storage.",
+    ],
+    tags: ["React.js", "Tailwind CSS", "Firebase", "JavaScript"],
+  },
+];
+
+const trainings = [
+  {
+    id: "masai",
     title: "Masai School",
-    duration: "October, 2024 - Ongoing",
-    description: "Ongoing 6-month internship at Masai School in full-stack web development.",
-    details: "This Masai School internship is a hands-on learning experience where I am working on building real-world projects using HTML, CSS, JavaScript, React, Glitch, and Firebase. The program emphasizes problem-solving, collaboration, and industry-relevant skills. I am gaining expertise in front-end development, responsive design, state management in React, and backend integration with Firebase.",
-    skills: "HTML, CSS, JavaScript, React, Glitch, Firebase, Responsive Design, Version Control (Git)",
-    grade: "Performance evaluation is ongoing, with consistent progress and positive feedback on project submissions.",
-    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNckH5q7N4sJXIllDAKUsBdO8jwmxaNMVrrw&s",
-  },
-  {
-    id: 1,
-    title: "EduSkills",
-    duration: "July, 2024 - Sep, 2024",
-    description: "Successfully completed a 10-week Generative AI Virtual Internship from July to September 2024.",
-    details: "This EduSkills internship under AICTE NEAT, supported by Google for Developers, provided hands-on experience in Generative AI. I worked on AI-driven content creation, fine-tuning language models, and integrating generative AI into applications, gaining expertise in prompt engineering, deep learning, and AI ethics.",
-    skills: "Python, TensorFlow, PyTorch, Generative AI, NLP, Deep Learning",
-    grade: "Achieved an 'Excellent' grade, reflecting my dedication and proficiency throughout the program.",
-    image: "https://media.licdn.com/dms/image/v2/C560BAQH827651PNzYw/company-logo_200_200/company-logo_200_200/0/1630649828607/eduskillsfoundation_logo?e=2147483647&v=beta&t=TSHlzoiIAkJVOP2IHchTTU7VB-1gWWsrq0utokz8B4w",
-    certificate: "https://drive.google.com/file/d/1_qwUMQxaUppyaEEAWmcGBS3_yk-4kVVe/view?usp=sharing"
-  },
-  {
-    id: 2,
-    title: "EduSkills",
-    duration: "Apr, 2024 - Jun, 2024",
+    duration: "October 2024 – June 2025",
     description:
-      "Successfully completed a 10-week Android Developer Virtual Internship from April to June 2024.",
+      "Ongoing 6-month internship at Masai School in full-stack web development.",
     details:
-      "This internship, provided by EduSkills Foundation under the AICTE NEAT program and supported by Google for Developers, equipped me with advanced Android development skills. I worked on hands-on projects to design and build efficient Android applications, further solidifying my expertise in Java and Kotlin.",
-    skills: "Android Studio, Kotlin, Java, Firebase",
-    grade:
-      "Achieved an 'Excellent' grade, reflecting my dedication and proficiency throughout the program.",
+      "Hands-on learning experience building real-world projects with HTML, CSS, JavaScript, React, Glitch, and Firebase. Focus on problem-solving, collaboration, and industry-relevant skills including responsive design, state management, and backend integration.",
+    skills: "HTML, CSS, JavaScript, React, Glitch, Firebase, Git",
+    grade: "Performance evaluation ongoing with consistent progress and positive feedback.",
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNckH5q7N4sJXIllDAKUsBdO8jwmxaNMVrrw&s",
+  },
+  {
+    id: "eduskills-ai",
+    title: "EduSkills",
+    duration: "July 2024 – Sep 2024",
+    description:
+      "Successfully completed a 10-week Generative AI Virtual Internship.",
+    details:
+      "Internship under AICTE NEAT, supported by Google for Developers. Worked on AI-driven content creation, fine-tuning language models, and integrating generative AI into applications.",
+    skills: "Python, TensorFlow, PyTorch, Generative AI, NLP",
+    grade: "Achieved an Excellent grade.",
     image:
       "https://media.licdn.com/dms/image/v2/C560BAQH827651PNzYw/company-logo_200_200/company-logo_200_200/0/1630649828607/eduskillsfoundation_logo?e=2147483647&v=beta&t=TSHlzoiIAkJVOP2IHchTTU7VB-1gWWsrq0utokz8B4w",
-    certificate: "https://drive.google.com/file/d/13pMjZ3wdqvB415wUtMqqnAWGQ-zLHK6y/view?usp=sharing"
+    certificate:
+      "https://drive.google.com/file/d/1_qwUMQxaUppyaEEAWmcGBS3_yk-4kVVe/view?usp=sharing",
   },
   {
-    id: 3,
-    title: "IBM SkillsBuild | AICTE ",
-    duration: "June 12, 2023 - July 24, 2023",
-    description: "Successfully completed a 6-week internship in Front-End Development using IBM SkillsBuild.",
-    details: "This internship, conducted in collaboration with AICTE and Edunet Foundation, provided hands-on training in Front End Development. I gained expertise in building interactive web applications using modern web technologies and industry best practices.",
+    id: "eduskills-android",
+    title: "EduSkills",
+    duration: "Apr 2024 – Jun 2024",
+    description:
+      "Successfully completed a 10-week Android Developer Virtual Internship.",
+    details:
+      "Provided by EduSkills Foundation under AICTE NEAT, supported by Google for Developers. Built efficient Android applications with hands-on projects in Java and Kotlin.",
+    skills: "Android Studio, Kotlin, Java, Firebase",
+    grade: "Achieved an Excellent grade.",
+    image:
+      "https://media.licdn.com/dms/image/v2/C560BAQH827651PNzYw/company-logo_200_200/company-logo_200_200/0/1630649828607/eduskillsfoundation_logo?e=2147483647&v=beta&t=TSHlzoiIAkJVOP2IHchTTU7VB-1gWWsrq0utokz8B4w",
+    certificate:
+      "https://drive.google.com/file/d/13pMjZ3wdqvB415wUtMqqnAWGQ-zLHK6y/view?usp=sharing",
+  },
+  {
+    id: "ibm",
+    title: "IBM SkillsBuild | AICTE",
+    duration: "June 12, 2023 – July 24, 2023",
+    description:
+      "Successfully completed a 6-week internship in Front-End Development.",
+    details:
+      "Conducted in collaboration with AICTE and Edunet Foundation. Gained expertise in building interactive web applications using modern web technologies and industry best practices.",
     skills: "HTML, CSS, JavaScript, React, IBM SkillsBuild",
     grade: "Certificate of Completion awarded by Edunet Foundation.",
-    image: "https://mlmzwlxpr5yp.i.optimole.com/cb:wJGC.2dace/w:864/h:540/q:mauto/f:best/https://www.muonline.ac.in/blog/wp-content/uploads/2023/10/AICTE-Accreditation.jpg",
-    certificate: "https://drive.google.com/file/d/1gF5cWixJOMSHbNwieYCTJGnfDvgR2Wvk/view?usp=sharing"
+    image:
+      "https://mlmzwlxpr5yp.i.optimole.com/cb:wJGC.2dace/w:864/h:540/q:mauto/f:best/https://www.muonline.ac.in/blog/wp-content/uploads/2023/10/AICTE-Accreditation.jpg",
+    certificate:
+      "https://drive.google.com/file/d/1gF5cWixJOMSHbNwieYCTJGnfDvgR2Wvk/view?usp=sharing",
   },
 ];
 
 const Experience = () => {
-  const [selectedExperience, setSelectedExperience] = useState(null);
+  const [selectedTraining, setSelectedTraining] = useState(null);
 
   useEffect(() => {
-    if (selectedExperience) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "auto";
-    }
-  }, [selectedExperience]);
+    if (!selectedTraining) return;
+
+    const scrollY = window.scrollY;
+    const { style: htmlStyle } = document.documentElement;
+    const { style: bodyStyle } = document.body;
+
+    htmlStyle.overflow = "hidden";
+    bodyStyle.overflow = "hidden";
+    bodyStyle.position = "fixed";
+    bodyStyle.top = `-${scrollY}px`;
+    bodyStyle.left = "0";
+    bodyStyle.right = "0";
+    bodyStyle.width = "100%";
+
+    return () => {
+      htmlStyle.overflow = "";
+      bodyStyle.overflow = "";
+      bodyStyle.position = "";
+      bodyStyle.top = "";
+      bodyStyle.left = "";
+      bodyStyle.right = "";
+      bodyStyle.width = "";
+      window.scrollTo(0, scrollY);
+    };
+  }, [selectedTraining]);
 
   return (
     <section className="experience-section" id="experience">
+      <div className="exp-background">
+        <div className="exp-blob exp-blob-1" />
+        <div className="exp-blob exp-blob-2" />
+      </div>
+
       <div className="experience-container">
-        <div className="section-header">
-          <h2 className="section-title">EXPERIENCE HIGHLIGHTS</h2>
-          <p className="section-subtitle">Showcasing my professional journey</p>
-          <div className="title-decoration"></div>
+        <div className="exp-header">
+          <span className="exp-label">Career journey</span>
+          <h2 className="exp-title">
+            Experience <span className="text-gradient">Highlights</span>
+          </h2>
+          <p className="exp-subtitle">
+            Professional roles and hands-on training that shaped my skills.
+          </p>
         </div>
 
-        <div className="experience-grid">
-          {experiences.map((exp) => (
-            <div 
-              className="experience-card" 
-              key={exp.id}
-              onClick={() => setSelectedExperience(exp)}
+        <div className="exp-block">
+          <div className="exp-block-header">
+            <Briefcase size={20} />
+            <h3>Professional Experience</h3>
+          </div>
+
+          <div className="work-timeline">
+            {workExperience.map((job, index) => (
+              <article className="work-card" key={job.id}>
+                <div className="work-card-marker">
+                  <span className="work-dot" />
+                  {index < workExperience.length - 1 && (
+                    <span className="work-line" />
+                  )}
+                </div>
+
+                <div className="work-card-body">
+                  <div className="work-card-top">
+                    <div>
+                      <h4 className="work-company">{job.company}</h4>
+                      <p className="work-role">{job.role}</p>
+                    </div>
+                    <div className="work-meta">
+                      <span className="work-duration">{job.duration}</span>
+                      {job.location && (
+                        <span className="work-location">
+                          <MapPin size={14} />
+                          {job.location}
+                        </span>
+                      )}
+                    </div>
+                  </div>
+
+                  <ul className="work-highlights">
+                    {job.highlights.map((point) => (
+                      <li key={point}>{point}</li>
+                    ))}
+                  </ul>
+
+                  <div className="work-tags">
+                    {job.tags.map((tag) => (
+                      <span key={tag} className="work-tag">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+
+        <div className="exp-block">
+          <div className="exp-block-header">
+            <GraduationCap size={20} />
+            <h3>Training &amp; Internships</h3>
+          </div>
+
+          <div className="training-grid">
+            {trainings.map((item) => (
+              <button
+                type="button"
+                className="training-card"
+                key={item.id}
+                onClick={() => setSelectedTraining(item)}
+              >
+                <div className="training-card-img">
+                  <img src={item.image} alt={item.title} loading="lazy" />
+                </div>
+                <div className="training-card-content">
+                  <h4>{item.title}</h4>
+                  <p className="training-duration">{item.duration}</p>
+                  <p className="training-desc">{item.description}</p>
+                  <span className="training-link">View Details</span>
+                </div>
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {selectedTraining &&
+          createPortal(
+            <div
+              className="exp-modal-overlay"
+              onClick={() => setSelectedTraining(null)}
+              role="presentation"
             >
-              <div className="card-image-container">
-                <img src={exp.image} alt={exp.title} className="card-image" />
-                <div className="card-overlay"></div>
-              </div>
-              <div className="card-content">
-                <h3 className="card-title">{exp.title}</h3>
-                <p className="card-duration">{exp.duration}</p>
-                <p className="card-description">{exp.description}</p>
-                <button className="learn-more-btn">
-                  View Details
-                </button>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* Modal */}
-        {selectedExperience && (
-          <div className="modal-overlay">
-            <div className="modal-container">
-              <div className="modal-header">
-                <img
-                  src={selectedExperience.image}
-                  alt={selectedExperience.title}
-                  className="modal-logo"
-                />
-                <button 
-                  className="close-btn"
-                  onClick={() => setSelectedExperience(null)}
+              <div
+                className="exp-modal"
+                onClick={(e) => e.stopPropagation()}
+                role="dialog"
+                aria-modal="true"
+                aria-labelledby="exp-modal-title"
+              >
+                <button
+                  type="button"
+                  className="exp-modal-close"
+                  onClick={() => setSelectedTraining(null)}
+                  aria-label="Close"
                 >
                   <FaTimes />
                 </button>
-              </div>
-              <div className="modal-body">
-                <h2 className="modal-title">{selectedExperience.title}</h2>
-                <p className="modal-duration">{selectedExperience.duration}</p>
-                <div className="modal-section">
-                  <h4 className="section-heading">About the Experience</h4>
-                  <p className="modal-text">{selectedExperience.details}</p>
-                </div>
-                <div className="modal-section">
-                  <h4 className="section-heading">Skills Gained</h4>
-                  <p className="modal-text">{selectedExperience.skills}</p>
-                </div>
-                {selectedExperience.grade && (
-                  <div className="modal-section">
-                    <h4 className="section-heading">Achievements</h4>
-                    <p className="modal-text highlight-text">{selectedExperience.grade}</p>
+
+                <div className="exp-modal-header">
+                  <img
+                    src={selectedTraining.image}
+                    alt={selectedTraining.title}
+                    className="exp-modal-logo"
+                  />
+                  <div>
+                    <h3 id="exp-modal-title">{selectedTraining.title}</h3>
+                    <p className="exp-modal-duration">
+                      {selectedTraining.duration}
+                    </p>
                   </div>
-                )}
-                
-                {selectedExperience.certificate && (
-                  <a 
-                    href={selectedExperience.certificate} 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    className="certificate-btn"
-                  >
-                    View Certificate <FaExternalLinkAlt className="external-icon" />
-                  </a>
-                )}
+                </div>
+
+                <div className="exp-modal-body">
+                  <div className="exp-modal-section">
+                    <h4>About</h4>
+                    <p>{selectedTraining.details}</p>
+                  </div>
+                  <div className="exp-modal-section">
+                    <h4>Skills Gained</h4>
+                    <p>{selectedTraining.skills}</p>
+                  </div>
+                  {selectedTraining.grade && (
+                    <div className="exp-modal-section">
+                      <h4>Achievements</h4>
+                      <p className="exp-modal-highlight">
+                        {selectedTraining.grade}
+                      </p>
+                    </div>
+                  )}
+                  {selectedTraining.certificate && (
+                    <a
+                      href={selectedTraining.certificate}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="exp-certificate-btn"
+                    >
+                      View Certificate <FaExternalLinkAlt />
+                    </a>
+                  )}
+                </div>
               </div>
-            </div>
-          </div>
-        )}
+            </div>,
+            document.body
+          )}
       </div>
     </section>
   );

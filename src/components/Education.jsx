@@ -1,76 +1,143 @@
-import React from 'react';
-import utuLogo from '../assets/utu.png';
-import './Education.css';
+import utuLogo from "../assets/utu.png";
+import "./Education.css";
+
+const qualifications = [
+  {
+    id: "btech",
+    degree: "Bachelor of Technology",
+    specialization: "Computer Science and Engineering",
+    duration: "2021 – 2025",
+    institution: {
+      label: "Institution",
+      name: "Roorkee College Of Engineering, Roorkee",
+      url: "https://huroorkee.ac.in/",
+    },
+    university: {
+      label: "University",
+      name: "Uttarakhand Technical University, Dehradun",
+      url: "https://uktech.ac.in/en",
+    },
+    grade: { label: "CGPA", value: "8.3" },
+    logo: utuLogo,
+    logoAlt: "UTU Logo",
+  },
+  {
+    id: "intermediate",
+    degree: "Intermediate",
+    duration: "2020 – 2021",
+    institution: {
+      label: "Institution",
+      name: "Chandra Shaikhar Sr. Sec. Public School, Roorkee",
+      url: "#",
+    },
+    board: { label: "Board", value: "C.B.S.E" },
+    grade: { label: "Percentage", value: "86%" },
+    logo:
+      "https://yt3.googleusercontent.com/Irgi7ybSY9dkcwEbRhSURtgJfO_pSVKwbRIif7NF8p6nAej5ah9pAiZLiJQJZ24Ew-_U3Efggg=s900-c-k-c0x00ffffff-no-rj",
+    logoAlt: "School Logo",
+  },
+];
 
 const Education = () => {
   return (
-    <div className="education-container">
-      <div className="education-header">
-        <h1 className="education-title">EDUCATIONAL QUALIFICATIONS</h1>
-        <div className="title-decoration"></div>
+    <section className="education-section" id="education">
+      <div className="edu-background">
+        <div className="edu-blob edu-blob-1" />
+        <div className="edu-blob edu-blob-2" />
       </div>
-      
-      {/* B.Tech Section */}
-      <div className="education-timeline">
-        <div className="timeline-item">
-          <div className="timeline-dot"></div>
-          <div className="timeline-content">
-            <div className="education-card">
-              <div className="education-details">
-                <h1 className="degree">Bachelor of Technology</h1>
-                <h2 className="specialization">Computer Science and Engineering</h2>
-                <div className="education-meta">
-                  <span className="duration">2021-2025</span>
-                  <span className="institution">
-                    <strong>INSTITUTION:</strong> <a href="https://huroorkee.ac.in/" target="_blank" rel="noopener noreferrer">Roorkee College Of Engineering, Roorkee</a>
-                  </span>
-                  <span className="university">
-                    <strong>UNIVERSITY:</strong> <a href="https://uktech.ac.in/en" target="_blank" rel="noopener noreferrer">Uttarakhand Technical University, Dehradun</a>
-                  </span>
-                  <span className="grade">
-                    <strong>CGPA:</strong> <span className="highlight">7.9</span>
-                  </span>
-                </div>
-              </div>
-              <div className="education-logo">
-                <div className="logo-container">
-                  <img src={utuLogo} alt="University Logo" className="university-logo" />
-                </div>
-              </div>
-            </div>
-          </div>
+
+      <div className="education-page-inner">
+        <div className="edu-header">
+          <span className="edu-label">Academic background</span>
+          <h1 className="edu-title">
+            Education <span className="text-gradient">Qualifications</span>
+          </h1>
+          <p className="edu-subtitle">
+            My formal education journey in computer science and foundational
+            academics.
+          </p>
         </div>
 
-        {/* Intermediate Section */}
-        <div className="timeline-item">
-          <div className="timeline-dot"></div>
-          <div className="timeline-content">
-            <div className="education-card">
-              <div className="education-details">
-                <h1 className="degree">Intermediate</h1>
-                <div className="education-meta">
-                  <span className="duration">2020-2021</span>
-                  <span className="institution">
-                    <strong>INSTITUTION:</strong> <a href="#" target="_blank" rel="noopener noreferrer">Chandra Shaikhar Sr. Sec. Public School, Roorkee</a>
-                  </span>
-                  <span className="board">
-                    <strong>BOARD:</strong> C.B.S.E
-                  </span>
-                  <span className="grade">
-                    <strong>PERCENTAGE:</strong> <span className="highlight">81%</span>
-                  </span>
+        <div className="edu-timeline">
+          {qualifications.map((item, index) => (
+            <article className="edu-card-wrap" key={item.id}>
+              <div className="edu-marker">
+                <span className="edu-dot" />
+                {index < qualifications.length - 1 && (
+                  <span className="edu-line" />
+                )}
+              </div>
+
+              <div className="edu-card">
+                <div className="edu-card-body">
+                  <div className="edu-card-top">
+                    <div>
+                      <h2 className="edu-degree">{item.degree}</h2>
+                      {item.specialization && (
+                        <p className="edu-specialization">
+                          {item.specialization}
+                        </p>
+                      )}
+                    </div>
+                    <span className="edu-duration">{item.duration}</span>
+                  </div>
+
+                  <div className="edu-meta">
+                    <div className="edu-meta-row">
+                      <span className="edu-meta-label">
+                        {item.institution.label}
+                      </span>
+                      {item.institution.url !== "#" ? (
+                        <a
+                          href={item.institution.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          {item.institution.name}
+                        </a>
+                      ) : (
+                        <span>{item.institution.name}</span>
+                      )}
+                    </div>
+
+                    {item.university && (
+                      <div className="edu-meta-row">
+                        <span className="edu-meta-label">
+                          {item.university.label}
+                        </span>
+                        <a
+                          href={item.university.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          {item.university.name}
+                        </a>
+                      </div>
+                    )}
+
+                    {item.board && (
+                      <div className="edu-meta-row">
+                        <span className="edu-meta-label">{item.board.label}</span>
+                        <span>{item.board.value}</span>
+                      </div>
+                    )}
+
+                    <div className="edu-meta-row edu-grade-row">
+                      <span className="edu-meta-label">{item.grade.label}</span>
+                      <span className="edu-grade">{item.grade.value}</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="edu-logo-wrap">
+                  <img src={item.logo} alt={item.logoAlt} loading="lazy" />
                 </div>
               </div>
-              <div className="education-logo">
-                <div className="logo-container">
-                  <img src="https://yt3.googleusercontent.com/Irgi7ybSY9dkcwEbRhSURtgJfO_pSVKwbRIif7NF8p6nAej5ah9pAiZLiJQJZ24Ew-_U3Efggg=s900-c-k-c0x00ffffff-no-rj" alt="School Logo" className="school-logo" />
-                </div>
-              </div>
-            </div>
-          </div>
+            </article>
+          ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
