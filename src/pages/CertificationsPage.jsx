@@ -10,6 +10,7 @@ import {
   ZoomIn,
 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import CertImage from "../components/CertImage";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import { certifications } from "../data/certifications";
@@ -97,7 +98,7 @@ const CertificationsPage = () => {
                   onClick={() => setLightboxImage(cert.image)}
                   aria-label={`View ${cert.title} certificate`}
                 >
-                  <img src={cert.image} alt={cert.title} />
+                  <CertImage cert={cert} />
                   <div className="image-overlay-hint">
                     <ZoomIn size={24} />
                     <span>View Certificate</span>

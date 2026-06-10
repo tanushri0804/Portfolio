@@ -1,9 +1,11 @@
+import { useState } from "react";
 import { ArrowUpRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import CertImage from "./CertImage";
 import { featuredCertifications } from "../data/certifications";
 import "./Certifications.css";
 
-const STACK_ITEMS = [...featuredCertifications, { id: "explore" }];
+const STACK_COUNT = featuredCertifications.length + 1;
 
 const Certifications = () => {
   const navigate = useNavigate();
@@ -24,7 +26,11 @@ const Certifications = () => {
           {featuredCertifications.map((cert, index) => (
             <div
               key={cert.id}
-              className="cert-card-stack-item"
+              className={`cert-card-stack-item${
+                index === featuredCertifications.length - 1
+                  ? " cert-card-stack-item-penultimate"
+                  : ""
+              }`}
               style={{ zIndex: index + 1 }}
             >
               <div
@@ -43,10 +49,9 @@ const Certifications = () => {
                   className="cert-visual-container"
                   style={{ "--card-bg": cert.cardBg }}
                 >
-                  <img
-                    src={cert.image}
-                    alt={cert.title}
-                    className="cert-image-mockup"
+                  <CertImage
+                    cert={cert}
+                    className="cert-image-mockup cert-image-photo"
                   />
                 </div>
 
@@ -73,7 +78,7 @@ const Certifications = () => {
 
           <div
             className="cert-card-stack-item cert-card-stack-item-last"
-            style={{ zIndex: STACK_ITEMS.length }}
+            style={{ zIndex: STACK_COUNT }}
           >
             <div className="cert-main-card last-card">
               <div className="last-card-content">

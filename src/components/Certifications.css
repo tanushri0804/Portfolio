@@ -1,7 +1,7 @@
 .cert-stack-section {
   --cert-stack-top: 120px;
   --cert-card-height: 550px;
-  --cert-stack-gap: 24vh;
+  --cert-stack-gap: 28vh;
 
   padding: 100px 0 160px;
   background-color: #000;
@@ -41,14 +41,18 @@
   position: sticky;
   top: var(--cert-stack-top);
   width: 100%;
-  min-height: var(--cert-card-height);
   padding-bottom: var(--cert-stack-gap);
   transform: none;
   will-change: auto;
 }
 
+/* Extra scroll room so the final CTA card fully covers the last cert */
+.cert-card-stack-item-penultimate {
+  padding-bottom: calc(var(--cert-stack-gap) + 12vh);
+}
+
 .cert-card-stack-item-last {
-  padding-bottom: 12vh;
+  padding-bottom: 8vh;
 }
 
 .cert-main-card {
@@ -59,12 +63,14 @@
   grid-template-columns: 1.1fr 1fr;
   gap: 3rem;
   padding: 2.5rem;
+  height: var(--cert-card-height);
   min-height: var(--cert-card-height);
   box-shadow: 0 50px 100px -20px rgba(0, 0, 0, 0.9);
   overflow: hidden;
   position: relative;
   cursor: pointer;
   transition: background-color 0.4s ease, border-color 0.4s ease;
+  isolation: isolate;
 }
 
 .cert-main-card.last-card {
@@ -72,9 +78,25 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #0c0c0c 0%, #151515 100%);
+  background-color: #0c0c0c;
+  background-image: linear-gradient(135deg, #0c0c0c 0%, #151515 100%);
   text-align: center;
   cursor: default;
+  /* Solid cover so previous card never peeks through */
+  box-shadow:
+    0 50px 100px -20px rgba(0, 0, 0, 0.9),
+    0 -2px 0 0 #0c0c0c;
+}
+
+.cert-main-card.last-card::before {
+  content: "";
+  position: absolute;
+  top: -4px;
+  left: -2px;
+  right: -2px;
+  height: 8px;
+  background: #0c0c0c;
+  z-index: 2;
 }
 
 .cert-main-card.last-card h3 {
@@ -86,6 +108,8 @@
   flex-direction: column;
   align-items: center;
   width: 100%;
+  position: relative;
+  z-index: 1;
 }
 
 .cert-main-card:not(.last-card):hover {
@@ -96,12 +120,14 @@
 .cert-visual-container {
   background-color: var(--card-bg, #1a1a1a);
   border-radius: 30px;
-  min-height: 100%;
+  height: 100%;
+  min-height: 0;
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  padding: 1rem;
 }
 
 .cert-image-mockup {
@@ -112,8 +138,22 @@
   transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.cert-main-card:not(.last-card):hover .cert-image-mockup {
+/* Actual certificate screenshots */
+.cert-image-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: 12px;
+  filter: none;
+}
+
+.cert-main-card:not(.last-card):hover .cert-image-mockup:not(.cert-image-photo) {
   transform: scale(1.05) translateY(-10px);
+}
+
+.cert-main-card:not(.last-card):hover .cert-image-photo {
+  transform: scale(1.02);
 }
 
 .cert-content-details {
@@ -121,6 +161,7 @@
   flex-direction: column;
   justify-content: center;
   padding-right: 2rem;
+  min-height: 0;
 }
 
 .cert-org-header {
@@ -211,8 +252,8 @@
 
 @media (max-width: 1100px) {
   .cert-stack-section {
-    --cert-card-height: auto;
-    --cert-stack-gap: 18vh;
+    --cert-card-height: 620px;
+    --cert-stack-gap: 20vh;
   }
 
   .cert-stack-container {
@@ -222,13 +263,19 @@
   .cert-main-card {
     grid-template-columns: 1fr;
     padding: 2rem;
-    min-height: auto;
+    height: auto;
+    min-height: var(--cert-card-height);
+  }
+
+  .cert-main-card.last-card {
+    height: var(--cert-card-height);
+    min-height: var(--cert-card-height);
   }
 
   .cert-visual-container {
-    height: 300px;
-    min-height: 300px;
-    margin-bottom: 2rem;
+    height: 280px;
+    min-height: 280px;
+    flex-shrink: 0;
   }
 
   .cert-content-details {
@@ -249,6 +296,11 @@
 @media (max-width: 640px) {
   .cert-stack-section {
     --cert-stack-top: 100px;
-    --cert-stack-gap: 14vh;
+    --cert-stack-gap: 16vh;
+    --cert-card-height: 580px;
+  }
+
+  .cert-card-stack-item-penultimate {
+    padding-bottom: calc(var(--cert-stack-gap) + 10vh);
   }
 }
