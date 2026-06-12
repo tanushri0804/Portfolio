@@ -6,7 +6,7 @@
   color: var(--text-primary);
   overflow: hidden;
   content-visibility: auto;
-  contain-intrinsic-size: auto 800px;
+  contain-intrinsic-size: auto 560px;
 }
 
 .tech-accent-bar {
@@ -69,7 +69,49 @@
 
 .tech-header {
   text-align: center;
-  margin-bottom: 3.5rem;
+  margin-bottom: 2rem;
+}
+
+.tech-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.6rem;
+  margin-bottom: 1.5rem;
+}
+
+.tech-tab {
+  padding: 0.55rem 1.1rem;
+  border-radius: 100px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.03);
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.tech-tab:hover {
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.tech-tab.active {
+  color: #fff;
+  border-color: transparent;
+  background: linear-gradient(
+    135deg,
+    var(--accent-blue),
+    var(--accent-purple)
+  );
+  box-shadow: 0 8px 20px -10px rgba(59, 130, 246, 0.6);
 }
 
 .tech-heading {
@@ -96,10 +138,13 @@
   margin: 0 auto;
 }
 
-.tech-grid {
+.tech-grid,
+.tech-featured-grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 1.25rem;
+  grid-template-columns: repeat(auto-fill, minmax(108px, 1fr));
+  gap: 1rem;
+  max-width: 720px;
+  margin: 0 auto;
 }
 
 .tech-card {
@@ -173,8 +218,8 @@
 }
 
 @media (max-width: 1024px) {
-  .tech-grid {
-    grid-template-columns: repeat(4, 1fr);
+  .tech-featured-grid {
+    max-width: 100%;
   }
 }
 
@@ -205,9 +250,27 @@
     display: none;
   }
 
-  .tech-grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
+  .tech-featured-grid {
+    grid-template-columns: repeat(auto-fill, minmax(96px, 1fr));
+    gap: 0.85rem;
+  }
+
+  .tech-tabs {
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    overflow-x: auto;
+    padding-bottom: 0.35rem;
+    margin-left: -0.25rem;
+    margin-right: -0.25rem;
+    scrollbar-width: none;
+  }
+
+  .tech-tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .tech-tab {
+    flex-shrink: 0;
   }
 
   .tech-card-icon {
@@ -220,8 +283,8 @@
     padding: 4rem 0;
   }
 
-  .tech-grid {
-    grid-template-columns: repeat(2, 1fr);
+  .tech-featured-grid {
+    grid-template-columns: repeat(3, 1fr);
   }
 
   .tech-card-name {
