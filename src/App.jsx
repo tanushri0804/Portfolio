@@ -5,6 +5,7 @@ import CertificationsPage from "./pages/CertificationsPage";
 import EducationPage from "./pages/EducationPage";
 import HomePage from "./pages/HomePage";
 import ProjectsPage from "./pages/ProjectsPage";
+import ResumePage from "./pages/ResumePage";
 
 const App = () => {
   return (
@@ -13,6 +14,7 @@ const App = () => {
       <Route path="/education" element={<EducationPage />} />
       <Route path="/projects" element={<ProjectsPage />} />
       <Route path="/certifications" element={<CertificationsPage />} />
+      <Route path="/resume" element={<ResumePage />} />
     </Routes>
   );
 };

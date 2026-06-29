@@ -1,17 +1,32 @@
 export const projects = [
   {
+    id: 0,
+    title: "Mentora",
+    subtitle: "AI Mental Wellness Platform",
+    description:
+      "Full-stack wellness platform with AI chat companions, mood tracking, self-care activities, and community storytelling — built on React, Node.js, PostgreSQL, and Gemini AI.",
+    details:
+      "Mentora pairs users with specialized AI mentors (Mood Mentor, Stress Buster, Anxiety Ally, and more), each with distinct personalities powered by Google Gemini. Users can also build custom chatbots with their own prompts, avatars, and visibility settings. Beyond chat, the platform includes daily mood check-ins with trend visualization, timer-based self-care sessions, a community story space tagged by emotion, and deep profile personalization — all backed by JWT + Google OAuth auth, Prisma ORM on PostgreSQL, and deployed on Railway + Vercel.",
+    skills: ["React 18", "Node.js", "PostgreSQL", "Prisma", "Gemini AI", "JWT", "Google OAuth", "Express", "Vercel"],
+    githubLink: "https://github.com/tanushri0804/Mentora",
+    liveLink: "https://mentora-mental-wellness.vercel.app",
+    image: new URL("../assets/projects/Mentora.png", import.meta.url).href,
+    color: "#6366f1",
+    category: "Full Stack · AI",
+    featured: true,
+  },
+  {
     id: 1,
     title: "VogueVault",
-    subtitle: "E-Commerce Platform",
+    subtitle: "Fashion E-Commerce Platform",
     description:
-      "Online shopping platform for clothing with wishlist, cart, and category-based navigation.",
+      "Multi-page fashion retail platform covering the full user journey — browse, sign in, and shop across Men, Women, Kids, Ethnic, and Casual categories with a polished editorial UI.",
     details:
-      "A full-featured e-commerce experience for traditional and modern outfits across men, women, and kids. Includes account creation, login, wishlist, shopping cart, and smooth category browsing with a responsive storefront.",
-    skills: ["HTML", "CSS", "JavaScript", "Responsive Design", "Glitch"],
+      "Built from scratch with semantic HTML5, CSS3 (Grid, Flexbox, custom properties), and vanilla JavaScript. Features a split-screen landing page with scrolling marquee, full auth flow (sign in/up with API integration), a post-login shop dashboard, 5 dedicated category pages with filter chips, product cards with hover zoom and slide-up actions, client-side bag and wishlist with toast notifications, and a fixed/frosted-glass responsive navbar. Consistent design system across all pages using a purple/violet brand palette with Playfair Display + Inter typography.",
+    skills: ["HTML5", "CSS3", "JavaScript", "REST API", "Responsive Design", "CSS Grid", "Flexbox"],
     githubLink: "https://github.com/tanushri0804/VogueVault",
     liveLink: "https://tanushri0804.github.io/VogueVault/",
-    image:
-      "https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=1200&auto=format&fit=crop",
+    image: new URL("../assets/projects/vogue-vault.png", import.meta.url).href,
     color: "#8b5cf6",
     category: "Web App",
     featured: true,
@@ -69,87 +84,36 @@ export const projects = [
   },
   {
     id: 5,
-    title: "Mental Health Chatbot",
-    subtitle: "AI Support Assistant",
+    title: "SoulBook",
+    subtitle: "Mobile Book Tracking App",
     description:
-      "Conversational interface designed to provide supportive mental health interactions.",
+      "Cross-platform mobile reading companion built with React Native + Expo — track, discover, and review books with a personal reading diary experience.",
     details:
-      "An empathetic chatbot experience focused on accessible mental health support with a clean UI, guided conversation flows, and a calming visual design language.",
-    skills: ["React.js", "JavaScript", "UI/UX", "API Integration"],
-    githubLink: null,
+      "SoulBook is a full-stack mobile app (iOS, Android, Web) built on React Native 0.81 + Expo 54. It features JWT auth with secure token storage, a home dashboard, personal library, book discovery, finished reads tracker, and a journaling system. Stack highlights include React Navigation (stack + bottom tab), expo-sqlite for local storage, Lottie animated splash, expo-blur + expo-linear-gradient for premium UI, and a custom REST API backend on Node.js. Architecture is cleanly separated across api.js, authService.js, booksService.js, and a global ThemeContext for dark/light mode persistence.",
+    skills: ["React Native", "Expo", "Node.js", "REST API", "JWT", "SQLite", "Lottie", "React Navigation"],
+    githubLink: "https://github.com/tanushri0804/SoulBook",
     liveLink: null,
     image:
-      "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?q=80&w=1200&auto=format&fit=crop",
-    color: "#6366f1",
-    category: "Full Stack",
-    featured: false,
-  },
-  {
-    id: 6,
-    title: "College Management Dashboard",
-    subtitle: "Admin Dashboard",
-    description:
-      "Dashboard for managing academic records, students, and institutional data.",
-    details:
-      "A management dashboard concept for colleges with organized data views, role-based sections, and a structured interface for academic administration workflows.",
-    skills: ["React.js", "JavaScript", "SQL", "Dashboard UI"],
-    githubLink: null,
-    liveLink: null,
-    image:
-      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200&auto=format&fit=crop",
-    color: "#f59e0b",
-    category: "Full Stack",
+      "https://images.unsplash.com/photo-1512820790803-83ca734da794?q=80&w=1200&auto=format&fit=crop",
+    color: "#f97316",
+    category: "Mobile · Full Stack",
     featured: false,
   },
   {
     id: 7,
     title: "Weather Prediction App",
-    subtitle: "Real-time Weather",
+    subtitle: "Real-time Weather App",
     description:
-      "Full-stack weather app with React frontend and Java backend processing live API data.",
+      "Single-page weather app that fetches live forecast data from a weather API and displays it through a clean, responsive interface.",
     details:
-      "Weather prediction application integrating real-time API data with a React frontend and Java backend, delivering location-based forecasts and clean data visualization.",
-    skills: ["React.js", "Java", "REST APIs", "Real-time Data"],
-    githubLink: null,
+      "A single-page weather application built with Python and Flask that integrates a weather API to fetch and display real-time forecasts. Users can look up current conditions by location with a simple, clean UI rendered via HTML templates. Deployed to Heroku via Procfile.",
+    skills: ["Python", "Flask", "Weather API", "HTML", "CSS", "Heroku"],
+    githubLink: "https://github.com/tanushri0804/Weather-Prediction",
     liveLink: null,
     image:
       "https://images.unsplash.com/photo-1504608524841-42fe6f008b4b?q=80&w=1200&auto=format&fit=crop",
     color: "#38bdf8",
-    category: "Full Stack",
-    featured: false,
-  },
-  {
-    id: 8,
-    title: "Book Reading Platform",
-    subtitle: "Reading & Analytics",
-    description:
-      "Platform with authentication and personalized reading statistics.",
-    details:
-      "A book reading platform featuring user authentication, personalized reading stats, and a library-style interface for tracking reading habits over time.",
-    skills: ["React.js", "SQL", "Authentication", "UI/UX"],
-    githubLink: null,
-    liveLink: null,
-    image:
-      "https://images.unsplash.com/photo-1512820790803-83ca734da794?q=80&w=1200&auto=format&fit=crop",
-    color: "#a855f7",
-    category: "Full Stack",
-    featured: false,
-  },
-  {
-    id: 9,
-    title: "Interactive Text Editor",
-    subtitle: "Rich Text Tool",
-    description:
-      "Browser-based editor with formatting controls and live preview.",
-    details:
-      "An interactive text editor with formatting tools, live preview, and a minimal writing-focused interface built for smooth in-browser editing.",
-    skills: ["JavaScript", "HTML", "CSS", "DOM Manipulation"],
-    githubLink: null,
-    liveLink: null,
-    image:
-      "https://images.unsplash.com/photo-1456324504439-367cee3b3c32?q=80&w=1200&auto=format&fit=crop",
-    color: "#14b8a6",
-    category: "Tool",
+    category: "Web App",
     featured: false,
   },
 ];

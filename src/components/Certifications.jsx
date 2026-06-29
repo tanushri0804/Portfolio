@@ -3,6 +3,7 @@ import { ArrowUpRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import CertImage from "./CertImage";
 import { featuredCertifications } from "../data/certifications";
+import { killScrollTrigger } from "../utils/killScrollTrigger";
 import "./Certifications.css";
 
 const STACK_COUNT = featuredCertifications.length + 1;
@@ -10,9 +11,10 @@ const STACK_COUNT = featuredCertifications.length + 1;
 const Certifications = () => {
   const navigate = useNavigate();
 
-  const goToCertificationsPage = () => {
+  const goToCertificationsPage = async () => {
+    await killScrollTrigger();
     navigate("/certifications");
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    window.scrollTo({ top: 0, behavior: "instant" });
   };
 
   return (

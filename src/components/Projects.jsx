@@ -1,9 +1,18 @@
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { FaArrowRight, FaExternalLinkAlt, FaGithub } from "react-icons/fa";
 import { featuredProjects } from "../data/projects";
+import { killScrollTrigger } from "../utils/killScrollTrigger";
 import "./Projects.css";
 
 const Projects = () => {
+  const navigate = useNavigate();
+
+  const goToProjects = async () => {
+    await killScrollTrigger();
+    navigate("/projects", { state: { fromHome: true } });
+    window.scrollTo({ top: 0, behavior: "instant" });
+  };
+
   return (
     <section className="projects-section" id="projects">
       <div className="projects-bg">
@@ -24,7 +33,7 @@ const Projects = () => {
         </div>
 
         <div className="projects-bento">
-          {featuredProjects.map((project, index) => (
+          {featuredProjects.slice(0, 3).map((project, index) => (
             <article
               key={project.id}
               className={`project-card ${index === 0 ? "project-card-hero" : ""}`}
@@ -79,12 +88,16 @@ const Projects = () => {
         </div>
 
         <div className="projects-cta">
-          <Link to="/projects" className="projects-explore-btn">
+          <button
+            type="button"
+            onClick={goToProjects}
+            className="projects-explore-btn"
+          >
             <span>Explore All Projects</span>
             <span className="projects-explore-icon">
               <FaArrowRight />
             </span>
-          </Link>
+          </button>
           <a
             href="https://github.com/tanushri0804"
             target="_blank"

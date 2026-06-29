@@ -98,7 +98,7 @@ export const certifications = [
   cert({
     id: "03",
     title: "Industry Certification Program in Information Technology",
-    org: "L&T EDUTECH / COLLEGECONNECT PROGRAMME",
+    org: "L&T EDUTECH",
     duration: "12 Weeks • 2024",
     skills: [
       "Information Technology",

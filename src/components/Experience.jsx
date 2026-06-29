@@ -98,27 +98,19 @@ const Experience = () => {
   useEffect(() => {
     if (!selectedTraining) return;
 
+    // Save the current scroll position
     const scrollY = window.scrollY;
-    const { style: htmlStyle } = document.documentElement;
-    const { style: bodyStyle } = document.body;
 
-    htmlStyle.overflow = "hidden";
-    bodyStyle.overflow = "hidden";
-    bodyStyle.position = "fixed";
-    bodyStyle.top = `-${scrollY}px`;
-    bodyStyle.left = "0";
-    bodyStyle.right = "0";
-    bodyStyle.width = "100%";
+    // Lock scrolling without moving the page (no position:fixed needed)
+    document.documentElement.style.overflow = "hidden";
+    document.documentElement.style.scrollbarGutter = "stable";
 
     return () => {
-      htmlStyle.overflow = "";
-      bodyStyle.overflow = "";
-      bodyStyle.position = "";
-      bodyStyle.top = "";
-      bodyStyle.left = "";
-      bodyStyle.right = "";
-      bodyStyle.width = "";
-      window.scrollTo(0, scrollY);
+      // Restore scroll lock — position never changed so no jump
+      document.documentElement.style.overflow = "";
+      document.documentElement.style.scrollbarGutter = "";
+      // Ensure we stay exactly where we were (belt-and-suspenders)
+      window.scrollTo({ top: scrollY, behavior: "instant" });
     };
   }, [selectedTraining]);
 

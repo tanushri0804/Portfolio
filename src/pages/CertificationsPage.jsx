@@ -40,26 +40,16 @@ const CertificationsPage = () => {
     if (!isOpen) return;
 
     const scrollY = window.scrollY;
-    const { style: htmlStyle } = document.documentElement;
-    const { style: bodyStyle } = document.body;
 
-    htmlStyle.overflow = "hidden";
-    bodyStyle.overflow = "hidden";
-    bodyStyle.position = "fixed";
-    bodyStyle.top = `-${scrollY}px`;
-    bodyStyle.left = "0";
-    bodyStyle.right = "0";
-    bodyStyle.width = "100%";
+    // Lock scrolling without moving the page (no position:fixed = no jump)
+    document.documentElement.style.overflow = "hidden";
+    document.documentElement.style.scrollbarGutter = "stable";
 
     return () => {
-      htmlStyle.overflow = "";
-      bodyStyle.overflow = "";
-      bodyStyle.position = "";
-      bodyStyle.top = "";
-      bodyStyle.left = "";
-      bodyStyle.right = "";
-      bodyStyle.width = "";
-      window.scrollTo(0, scrollY);
+      document.documentElement.style.overflow = "";
+      document.documentElement.style.scrollbarGutter = "";
+      // Stay exactly where we were
+      window.scrollTo({ top: scrollY, behavior: "instant" });
     };
   }, [lightboxImage, detailsCert]);
 

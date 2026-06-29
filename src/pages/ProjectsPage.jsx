@@ -1,15 +1,17 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { FaArrowLeft, FaExternalLinkAlt, FaGithub } from "react-icons/fa";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import { projects } from "../data/projects";
 import "./ProjectsPage.css";
 
-const categories = ["All", "Web App", "Full Stack", "Tool"];
+const categories = ["All", "Web App", "Full Stack", "Full Stack · AI", "Mobile · Full Stack", "Tool"];
 
 const ProjectsPage = () => {
   const [activeFilter, setActiveFilter] = useState("All");
+  const location = useLocation();
+  const fromHome = location.state?.fromHome === true;
 
   const filtered =
     activeFilter === "All"
@@ -27,10 +29,12 @@ const ProjectsPage = () => {
         </div>
 
         <div className="projects-page-inner">
-          <Link to="/" className="projects-back-link">
-            <FaArrowLeft />
-            Back to Home
-          </Link>
+          {fromHome && (
+            <Link to="/" className="projects-back-link">
+              <FaArrowLeft />
+              Back to Home
+            </Link>
+          )}
 
           <header className="projects-page-hero">
             <span className="projects-page-label">Full archive</span>

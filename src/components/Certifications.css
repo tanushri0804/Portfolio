@@ -62,11 +62,10 @@
   display: grid;
   grid-template-columns: 1.1fr 1fr;
   gap: 3rem;
-  padding: 2.5rem;
-  height: var(--cert-card-height);
+  padding: 2.5rem 2.5rem 3rem;
   min-height: var(--cert-card-height);
   box-shadow: 0 50px 100px -20px rgba(0, 0, 0, 0.9);
-  overflow: hidden;
+  overflow: visible;
   position: relative;
   cursor: pointer;
   transition: background-color 0.4s ease, border-color 0.4s ease;
@@ -82,7 +81,8 @@
   background-image: linear-gradient(135deg, #0c0c0c 0%, #151515 100%);
   text-align: center;
   cursor: default;
-  /* Solid cover so previous card never peeks through */
+  min-height: var(--cert-card-height);
+  overflow: hidden;
   box-shadow:
     0 50px 100px -20px rgba(0, 0, 0, 0.9),
     0 -2px 0 0 #0c0c0c;
@@ -120,14 +120,16 @@
 .cert-visual-container {
   background-color: var(--card-bg, #1a1a1a);
   border-radius: 30px;
-  height: 100%;
-  min-height: 0;
+  height: 460px;
+  min-height: 460px;
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
   padding: 1rem;
+  align-self: start;
+  margin-bottom: 2rem;
 }
 
 .cert-image-mockup {
@@ -159,9 +161,11 @@
 .cert-content-details {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   padding-right: 2rem;
-  min-height: 0;
+  padding-top: 0.5rem;
+  padding-bottom: 2rem;
+  align-self: start;
 }
 
 .cert-org-header {
@@ -172,10 +176,13 @@
 }
 
 .cert-org-logo {
-  font-size: 1.25rem;
+  font-size: 1rem;
   font-weight: 800;
-  letter-spacing: 0.1rem;
+  letter-spacing: 0.08rem;
   color: #fff;
+  word-break: break-word;
+  line-height: 1.3;
+  max-width: 62%;
 }
 
 .cert-duration {
@@ -252,7 +259,7 @@
 
 @media (max-width: 1100px) {
   .cert-stack-section {
-    --cert-card-height: 620px;
+    --cert-card-height: 500px;
     --cert-stack-gap: 20vh;
   }
 
@@ -263,12 +270,10 @@
   .cert-main-card {
     grid-template-columns: 1fr;
     padding: 2rem;
-    height: auto;
-    min-height: var(--cert-card-height);
+    min-height: unset;
   }
 
   .cert-main-card.last-card {
-    height: var(--cert-card-height);
     min-height: var(--cert-card-height);
   }
 

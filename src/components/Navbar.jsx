@@ -1,23 +1,24 @@
 import { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { motion, AnimatePresence } from "framer-motion";
-import { Home, User, GraduationCap, Briefcase, Mail } from "lucide-react";
+import { Home, GraduationCap, Briefcase, Mail, FolderOpen, FileText } from "lucide-react";
 import { useLocation, useNavigate } from "react-router-dom";
+import { killScrollTrigger } from "../utils/killScrollTrigger";
 import "./Navbar.css";
 
 const navItems = [
   { icon: Home, label: "Home", id: "home" },
-  { icon: User, label: "About", id: "about" },
-  { icon: GraduationCap, label: "Edu", id: "education", path: "/education" },
-  { icon: Briefcase, label: "Work", id: "work" },
+  { icon: FolderOpen, label: "Projects", id: "projects", path: "/projects" },
+  { icon: GraduationCap, label: "Education", id: "education", path: "/education" },
+  { icon: Briefcase, label: "Experience", id: "experience" },
   { icon: Mail, label: "Contact", id: "contact" },
+  { icon: FileText, label: "Resume", id: "resume", path: "/resume" },
 ];
 
 const Navbar = ({
   heroRef,
   scrollToHero,
-  scrollToAbout,
-  scrollToWork,
+  scrollToExperience,
   scrollToContact,
 }) => {
   const [scrolled, setScrolled] = useState(false);
@@ -28,14 +29,17 @@ const Navbar = ({
 
   const scrollHandlers = {
     home: scrollToHero,
-    about: scrollToAbout,
-    work: scrollToWork,
+    experience: scrollToExperience,
     contact: scrollToContact,
   };
 
   useEffect(() => {
     if (location.pathname === "/education") {
       setActiveSection("education");
+    } else if (location.pathname === "/projects") {
+      setActiveSection("projects");
+    } else if (location.pathname === "/resume") {
+      setActiveSection("resume");
     } else if (location.pathname === "/certifications") {
       setActiveSection("certifications");
     }
@@ -81,22 +85,21 @@ const Navbar = ({
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  const handleNavClick = (item) => {
+  const handleNavClick = async (item) => {
     setActiveSection(item.id);
 
     if (item.path) {
+      await killScrollTrigger();
       navigate(item.path);
-      window.scrollTo({ top: 0, behavior: "smooth" });
+      window.scrollTo({ top: 0, behavior: "instant" });
       return;
     }
 
     const scrollToSection = scrollHandlers[item.id];
 
     if (!isHome) {
-      navigate("/");
-      if (scrollToSection) {
-        setTimeout(scrollToSection, 200);
-      }
+      await killScrollTrigger();
+      navigate("/", { state: { scrollTo: item.id } });
       return;
     }
 
@@ -188,8 +191,7 @@ NavItem.propTypes = {
 Navbar.propTypes = {
   heroRef: PropTypes.shape({ current: PropTypes.instanceOf(Element) }),
   scrollToHero: PropTypes.func,
-  scrollToAbout: PropTypes.func,
-  scrollToWork: PropTypes.func,
+  scrollToExperience: PropTypes.func,
   scrollToContact: PropTypes.func,
 };
 

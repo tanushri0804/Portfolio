@@ -1,11 +1,16 @@
 .professional-journey {
   position: relative;
   width: 100%;
-  min-height: 80vh;
-  padding: 6rem 0 5rem;
+  /* Exactly one viewport tall so everything fits when GSAP pins it */
+  min-height: 100vh;
+  height: 100vh;
+  padding: 2.5rem 0 2rem;
   background-color: var(--bg-color);
   color: var(--text-primary);
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .journey-background {
@@ -46,7 +51,7 @@
 }
 
 .journey-intro {
-  margin-bottom: 2.5rem;
+  margin-bottom: 1rem;
 }
 
 .journey-label {
@@ -74,10 +79,56 @@
   max-width: 520px;
 }
 
+/* ── Scroll hint ──────────────────────────────── */
+.journey-scroll-hint {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.3);
+  margin-bottom: 0.75rem;
+  animation: hintBob 2s ease-in-out infinite;
+}
+
+@keyframes hintBob {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(4px); }
+}
+
+/* ── Step dots ────────────────────────────────── */
+.journey-dots {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  margin-bottom: 1.25rem;
+}
+
+.journey-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  transition: all 0.4s ease;
+}
+
+.journey-dot.active {
+  width: 24px;
+  border-radius: 4px;
+  background: var(--accent-blue);
+}
+
+.journey-dot.done {
+  background: var(--accent-purple);
+}
+
+/* ── Accordion ────────────────────────────────── */
 .journey-accordion {
   display: flex;
   width: 100%;
-  height: 58vh;
+  height: 52vh;
+  min-height: 360px;
   min-height: 420px;
   gap: 1.25rem;
 }
@@ -222,14 +273,7 @@
   padding: 2.25rem;
   width: 100%;
   max-width: 520px;
-  max-height: 90%;
-  overflow-y: auto;
-  scrollbar-width: none;
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
-}
-
-.journey-glass::-webkit-scrollbar {
-  display: none;
 }
 
 .journey-glass-header {
@@ -292,12 +336,34 @@
   border-color: rgba(59, 130, 246, 0.3);
 }
 
+/* ── Standalone stats section (outside pinned area) ── */
+.journey-stats-section {
+  width: 100%;
+  background-color: var(--bg-color);
+  padding: 3rem 2rem;
+}
+
+.journey-stats-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1.75rem 2rem;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 20px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* keep the old .journey-stats class in case it's referenced elsewhere */
 .journey-stats {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 2.5rem;
-  margin-top: 3rem;
   padding: 1.75rem 2rem;
   background: rgba(255, 255, 255, 0.02);
   border: 1px solid rgba(255, 255, 255, 0.06);
@@ -404,6 +470,11 @@
     flex-direction: column;
     gap: 1.25rem;
     margin-top: 2rem;
+  }
+
+  .journey-stats-inner {
+    flex-direction: column;
+    gap: 1.25rem;
   }
 
   .journey-stat-divider {

@@ -19,11 +19,6 @@ const Technology = () => {
         <div className="tech-main">
           <div className="tech-header">
             <h2 className="tech-heading">What I Do</h2>
-            <p className="tech-intro">
-              Frontend developer building responsive web and mobile experiences
-              with React, TypeScript, and modern tooling — from Figma wireframes
-              to production-ready UIs backed by REST APIs and solid databases.
-            </p>
           </div>
 
           <div className="tech-tabs" role="tablist" aria-label="Skill categories">
