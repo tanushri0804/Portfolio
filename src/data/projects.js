@@ -103,6 +103,23 @@ export const projects = [
     isMobile: true,
   },
   {
+    id: 6,
+    title: "TypeFlare",
+    subtitle: "Typing Speed Test App",
+    description:
+      "A clean, distraction-free typing speed test web app with live WPM tracking, accuracy feedback, multiple content modes, and a full results history — a focused alternative to MonkeyType.",
+    details:
+      "TypeFlare presents a continuous stream of text and measures your speed and accuracy in real time. Choose from four timer durations (15s / 30s / 60s / 120s) and three content modes — Words (programming & science paragraphs), Quotes (longer passages), and Code (real JavaScript snippets). Letters turn green as you type correctly and red on mistakes; the current word is underlined in purple and the box shakes on a wrong confirmation. Tab restarts, Space confirms each word — fully keyboard-driven. After each test a results overlay shows WPM, accuracy, correct/wrong word counts, and every result is persisted to localStorage so you can track progress over time on the Results page.",
+    skills: ["HTML5", "CSS3", "JavaScript", "localStorage", "DOM Manipulation", "Responsive Design"],
+    githubLink: "https://github.com/tanushri0804/TypeFlare",
+    liveLink: "https://tanushri0804.github.io/TypeFlare/",
+    image:
+      "https://images.unsplash.com/photo-1587829741301-dc798b83add3?q=80&w=1200&auto=format&fit=crop",
+    color: "#a855f7",
+    category: "Tool",
+    featured: true,
+  },
+  {
     id: 7,
     title: "Weather Prediction App",
     subtitle: "Real-time Weather App",
