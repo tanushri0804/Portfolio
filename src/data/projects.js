@@ -89,15 +89,18 @@ export const projects = [
     description:
       "Cross-platform mobile reading companion built with React Native + Expo — track, discover, and review books with a personal reading diary experience.",
     details:
-      "SoulBook is a full-stack mobile app (iOS, Android, Web) built on React Native 0.81 + Expo 54. It features JWT auth with secure token storage, a home dashboard, personal library, book discovery, finished reads tracker, and a journaling system. Stack highlights include React Navigation (stack + bottom tab), expo-sqlite for local storage, Lottie animated splash, expo-blur + expo-linear-gradient for premium UI, and a custom REST API backend on Node.js. Architecture is cleanly separated across api.js, authService.js, booksService.js, and a global ThemeContext for dark/light mode persistence.",
+      "SoulBook is a full-stack mobile app (iOS, Android, Web) built on React Native 0.81 + Expo 54. Features a visual bookshelf with colored spines, book discovery with genre filters, reading stats, a Fate Wheel to pick your next read, a Book Matchmaker, reading progress tracking, JWT auth with secure storage, dark/light themes, and localization in English, Spanish, French, and Hindi. Architecture is cleanly separated across api.js, authService.js, booksService.js, and a global ThemeContext.",
     skills: ["React Native", "Expo", "Node.js", "REST API", "JWT", "SQLite", "Lottie", "React Navigation"],
     githubLink: "https://github.com/tanushri0804/SoulBook",
-    liveLink: null,
+    liveLink: "https://soul-book-one.vercel.app/",
+    expoLink: "https://expo.dev/preview/update?message=api&updateRuntimeVersion=1.0.0&createdAt=2026-07-06T10%3A47%3A03.216Z&slug=exp&projectId=10fbd696-65b5-4728-adb8-e20d7bd52f2c&group=973464f5-76ed-4b2d-9d4c-57f3bb2136af",
+    apkLink: null,
     image:
       "https://images.unsplash.com/photo-1512820790803-83ca734da794?q=80&w=1200&auto=format&fit=crop",
     color: "#f97316",
     category: "Mobile · Full Stack",
     featured: false,
+    isMobile: true,
   },
   {
     id: 7,
@@ -113,6 +116,23 @@ export const projects = [
     image:
       "https://images.unsplash.com/photo-1504608524841-42fe6f008b4b?q=80&w=1200&auto=format&fit=crop",
     color: "#38bdf8",
+    category: "Web App",
+    featured: false,
+  },
+  {
+    id: 8,
+    title: "Myntra Clone",
+    subtitle: "Fashion E-Commerce Clone",
+    description:
+      "A fully responsive Myntra clone built with HTML, CSS, and JavaScript, featuring a modern UI and smooth user experience.",
+    details:
+      "A frontend-only replica of the popular fashion e-commerce platform Myntra, built entirely with vanilla HTML, CSS, and JavaScript. The project captures the essence of the original site with a clean, modern design system, responsive layout that adapts to all screen sizes, and interactive elements like hover effects, product cards, and navigation menus. Demonstrates strong fundamentals in semantic HTML, CSS Grid/Flexbox layouts, and DOM manipulation without relying on frameworks.",
+    skills: ["HTML5", "CSS3", "JavaScript", "Responsive Design", "CSS Grid", "Flexbox", "DOM Manipulation"],
+    githubLink: "https://github.com/tanushri0804/Myntra-clone",
+    liveLink: null,
+    image:
+      "https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=1200&auto=format&fit=crop",
+    color: "#ff3f6c",
     category: "Web App",
     featured: false,
   },
