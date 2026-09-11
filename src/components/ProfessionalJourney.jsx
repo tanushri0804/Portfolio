@@ -196,7 +196,8 @@ const ProfessionalJourney = () => {
                 <motion.div
                   key={panel.id}
                   className={`journey-panel ${isActive ? "active" : ""}`}
-                  animate={{ flex: isActive ? 1.5 : 0.5 }}
+                  style={{ flexGrow: 0.5, flexShrink: 1, flexBasis: "0%" }}
+                  animate={{ flexGrow: isActive ? 1.5 : 0.5 }}
                   transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1] }}
                 >
                   <div className="journey-panel-bg">

@@ -135,6 +135,7 @@
 
 .journey-panel {
   position: relative;
+  min-width: 0;
   border-radius: 28px;
   background: #0d0d0d;
   overflow: hidden;

@@ -11,7 +11,9 @@ import "./Contact.css";
 
 const EMAIL = "tanushri98371@gmail.com";
 const WEB3FORMS_URL = "https://api.web3forms.com/submit";
-const WEB3FORMS_ACCESS_KEY = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY;
+const WEB3FORMS_ACCESS_KEY =
+  import.meta.env.VITE_WEB3FORMS_ACCESS_KEY ||
+  "d229f3aa-fa09-4203-8a90-ada094ca36fc";
 
 const socialLinks = [
   {
@@ -53,16 +55,32 @@ const Contact = forwardRef((props, ref) => {
     }
   };
 
+  const getMailtoUrl = () => {
+    const subject = encodeURIComponent(
+      `Portfolio message from ${formData.name || "Visitor"}`
+    );
+    const body = encodeURIComponent(
+      `Hi Tanu,\n\n${formData.message}\n\n---\nSender Details:\nName: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone || "Not provided"}`
+    );
+    return `mailto:${EMAIL}?subject=${subject}&body=${body}`;
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
     setFormError("");
 
-    try {
-      if (!WEB3FORMS_ACCESS_KEY) {
-        throw new Error("Web3Forms access key is not configured");
-      }
+    // If access key is not configured, fallback gracefully to mailto
+    if (!WEB3FORMS_ACCESS_KEY || WEB3FORMS_ACCESS_KEY === "your_web3forms_access_key_here") {
+      const mailtoUrl = getMailtoUrl();
+      window.location.href = mailtoUrl;
+      setIsSuccess(true);
+      setIsSubmitting(false);
+      setFormData({ name: "", email: "", phone: "", message: "" });
+      return;
+    }
 
+    try {
       const response = await fetch(WEB3FORMS_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -87,7 +105,7 @@ const Contact = forwardRef((props, ref) => {
     } catch (error) {
       console.error("Contact form error:", error);
       setFormError(
-        "Could not send your message. Please email me directly at tanushri98371@gmail.com"
+        "Could not send directly via Web3Forms. Click below to send directly via your email app:"
       );
     } finally {
       setIsSubmitting(false);
@@ -169,9 +187,15 @@ const Contact = forwardRef((props, ref) => {
                 ) : (
                   <form className="contact-form" onSubmit={handleSubmit}>
                     {formError && (
-                      <p className="contact-form-error" role="alert">
-                        {formError}
-                      </p>
+                      <div className="contact-form-error" role="alert">
+                        <p>{formError}</p>
+                        <a
+                          href={getMailtoUrl()}
+                          className="contact-error-mailto-btn"
+                        >
+                          <Mail size={14} /> Send via Email App
+                        </a>
+                      </div>
                     )}
 
                     <div className="contact-field-row">

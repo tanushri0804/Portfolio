@@ -29,7 +29,7 @@ const Hero = () => {
             transition={{ duration: 1, ease: "easeInOut", delay: 0.8 }}
             style={{ display: "inline-block" }}
           >
-            <h2 className="title-role text-gradient">Full-Stack Developer</h2>
+            <h2 className="title-role text-gradient">Software Developer</h2>
           </motion.div>
         </div>
 
